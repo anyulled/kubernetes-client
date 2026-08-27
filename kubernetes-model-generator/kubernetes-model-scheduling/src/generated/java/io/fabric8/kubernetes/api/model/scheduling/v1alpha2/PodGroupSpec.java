@@ -30,9 +30,6 @@ import io.fabric8.kubernetes.api.model.Volume;
 import io.fabric8.kubernetes.api.model.VolumeMount;
 import io.sundr.builder.annotations.Buildable;
 import io.sundr.builder.annotations.BuildableReference;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * PodGroupSpec defines the desired state of a PodGroup.
@@ -47,12 +44,6 @@ import lombok.experimental.Accessors;
     "resourceClaims",
     "schedulingConstraints",
     "schedulingPolicy"
-})
-@ToString
-@EqualsAndHashCode
-@Accessors(prefix = {
-    "_",
-    ""
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder", refs = {
     @BuildableReference(ObjectMeta.class),
@@ -244,6 +235,92 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
 
     public void setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof PodGroupSpec)) {
+            return false;
+        }
+        PodGroupSpec other = (PodGroupSpec) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        Object this$disruptionMode = this.getDisruptionMode();
+        Object other$disruptionMode = other.getDisruptionMode();
+        if (this$disruptionMode == null ? other$disruptionMode != null : !this$disruptionMode.equals(other$disruptionMode)) {
+            return false;
+        }
+        Object this$podGroupTemplateRef = this.getPodGroupTemplateRef();
+        Object other$podGroupTemplateRef = other.getPodGroupTemplateRef();
+        if (this$podGroupTemplateRef == null ? other$podGroupTemplateRef != null : !this$podGroupTemplateRef.equals(other$podGroupTemplateRef)) {
+            return false;
+        }
+        Object this$priority = this.getPriority();
+        Object other$priority = other.getPriority();
+        if (this$priority == null ? other$priority != null : !this$priority.equals(other$priority)) {
+            return false;
+        }
+        Object this$priorityClassName = this.getPriorityClassName();
+        Object other$priorityClassName = other.getPriorityClassName();
+        if (this$priorityClassName == null ? other$priorityClassName != null : !this$priorityClassName.equals(other$priorityClassName)) {
+            return false;
+        }
+        Object this$resourceClaims = this.getResourceClaims();
+        Object other$resourceClaims = other.getResourceClaims();
+        if (this$resourceClaims == null ? other$resourceClaims != null : !this$resourceClaims.equals(other$resourceClaims)) {
+            return false;
+        }
+        Object this$schedulingConstraints = this.getSchedulingConstraints();
+        Object other$schedulingConstraints = other.getSchedulingConstraints();
+        if (this$schedulingConstraints == null ? other$schedulingConstraints != null : !this$schedulingConstraints.equals(other$schedulingConstraints)) {
+            return false;
+        }
+        Object this$schedulingPolicy = this.getSchedulingPolicy();
+        Object other$schedulingPolicy = other.getSchedulingPolicy();
+        if (this$schedulingPolicy == null ? other$schedulingPolicy != null : !this$schedulingPolicy.equals(other$schedulingPolicy)) {
+            return false;
+        }
+        Object this$additionalProperties = this.getAdditionalProperties();
+        Object other$additionalProperties = other.getAdditionalProperties();
+        if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof PodGroupSpec;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 59;
+        int result = 1;
+        Object $disruptionMode = this.getDisruptionMode();
+        result = result * prime + ($disruptionMode == null ? 43 : $disruptionMode.hashCode());
+        Object $podGroupTemplateRef = this.getPodGroupTemplateRef();
+        result = result * prime + ($podGroupTemplateRef == null ? 43 : $podGroupTemplateRef.hashCode());
+        Object $priority = this.getPriority();
+        result = result * prime + ($priority == null ? 43 : $priority.hashCode());
+        Object $priorityClassName = this.getPriorityClassName();
+        result = result * prime + ($priorityClassName == null ? 43 : $priorityClassName.hashCode());
+        Object $resourceClaims = this.getResourceClaims();
+        result = result * prime + ($resourceClaims == null ? 43 : $resourceClaims.hashCode());
+        Object $schedulingConstraints = this.getSchedulingConstraints();
+        result = result * prime + ($schedulingConstraints == null ? 43 : $schedulingConstraints.hashCode());
+        Object $schedulingPolicy = this.getSchedulingPolicy();
+        result = result * prime + ($schedulingPolicy == null ? 43 : $schedulingPolicy.hashCode());
+        Object $additionalProperties = this.getAdditionalProperties();
+        result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PodGroupSpec(" + "disruptionMode=" + this.getDisruptionMode() + ", podGroupTemplateRef=" + this.getPodGroupTemplateRef() + ", priority=" + this.getPriority() + ", priorityClassName=" + this.getPriorityClassName() + ", resourceClaims=" + this.getResourceClaims() + ", schedulingConstraints=" + this.getSchedulingConstraints() + ", schedulingPolicy=" + this.getSchedulingPolicy() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

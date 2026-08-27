@@ -29,9 +29,6 @@ import io.fabric8.kubernetes.api.model.Volume;
 import io.fabric8.kubernetes.api.model.VolumeMount;
 import io.sundr.builder.annotations.Buildable;
 import io.sundr.builder.annotations.BuildableReference;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * NodeAllocatableResourceMapping defines the translation between the DRA device/capacity units requested to the corresponding quantity of the node allocatable resource.
@@ -41,12 +38,6 @@ import lombok.experimental.Accessors;
 @JsonPropertyOrder({
     "allocationMultiplier",
     "capacityKey"
-})
-@ToString
-@EqualsAndHashCode
-@Accessors(prefix = {
-    "_",
-    ""
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder", refs = {
     @BuildableReference(ObjectMeta.class),
@@ -141,6 +132,57 @@ public class NodeAllocatableResourceMapping implements Editable<NodeAllocatableR
 
     public void setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof NodeAllocatableResourceMapping)) {
+            return false;
+        }
+        NodeAllocatableResourceMapping other = (NodeAllocatableResourceMapping) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        Object this$allocationMultiplier = this.getAllocationMultiplier();
+        Object other$allocationMultiplier = other.getAllocationMultiplier();
+        if (this$allocationMultiplier == null ? other$allocationMultiplier != null : !this$allocationMultiplier.equals(other$allocationMultiplier)) {
+            return false;
+        }
+        Object this$capacityKey = this.getCapacityKey();
+        Object other$capacityKey = other.getCapacityKey();
+        if (this$capacityKey == null ? other$capacityKey != null : !this$capacityKey.equals(other$capacityKey)) {
+            return false;
+        }
+        Object this$additionalProperties = this.getAdditionalProperties();
+        Object other$additionalProperties = other.getAdditionalProperties();
+        if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof NodeAllocatableResourceMapping;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 59;
+        int result = 1;
+        Object $allocationMultiplier = this.getAllocationMultiplier();
+        result = result * prime + ($allocationMultiplier == null ? 43 : $allocationMultiplier.hashCode());
+        Object $capacityKey = this.getCapacityKey();
+        result = result * prime + ($capacityKey == null ? 43 : $capacityKey.hashCode());
+        Object $additionalProperties = this.getAdditionalProperties();
+        result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "NodeAllocatableResourceMapping(" + "allocationMultiplier=" + this.getAllocationMultiplier() + ", capacityKey=" + this.getCapacityKey() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

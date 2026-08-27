@@ -15,9 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.fabric8.kubernetes.api.builder.Editable;
 import io.sundr.builder.annotations.Buildable;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.
@@ -28,12 +25,6 @@ import lombok.experimental.Accessors;
     "containers",
     "resourceClaimName",
     "resources"
-})
-@ToString
-@EqualsAndHashCode
-@Accessors(prefix = {
-    "_",
-    ""
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder")
 @Generated("io.fabric8.kubernetes.schema.generator.model.ModelGenerator")
@@ -137,6 +128,64 @@ public class NodeAllocatableResourceClaimStatus implements Editable<NodeAllocata
 
     public void setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof NodeAllocatableResourceClaimStatus)) {
+            return false;
+        }
+        NodeAllocatableResourceClaimStatus other = (NodeAllocatableResourceClaimStatus) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        Object this$containers = this.getContainers();
+        Object other$containers = other.getContainers();
+        if (this$containers == null ? other$containers != null : !this$containers.equals(other$containers)) {
+            return false;
+        }
+        Object this$resourceClaimName = this.getResourceClaimName();
+        Object other$resourceClaimName = other.getResourceClaimName();
+        if (this$resourceClaimName == null ? other$resourceClaimName != null : !this$resourceClaimName.equals(other$resourceClaimName)) {
+            return false;
+        }
+        Object this$resources = this.getResources();
+        Object other$resources = other.getResources();
+        if (this$resources == null ? other$resources != null : !this$resources.equals(other$resources)) {
+            return false;
+        }
+        Object this$additionalProperties = this.getAdditionalProperties();
+        Object other$additionalProperties = other.getAdditionalProperties();
+        if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof NodeAllocatableResourceClaimStatus;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 59;
+        int result = 1;
+        Object $containers = this.getContainers();
+        result = result * prime + ($containers == null ? 43 : $containers.hashCode());
+        Object $resourceClaimName = this.getResourceClaimName();
+        result = result * prime + ($resourceClaimName == null ? 43 : $resourceClaimName.hashCode());
+        Object $resources = this.getResources();
+        result = result * prime + ($resources == null ? 43 : $resources.hashCode());
+        Object $additionalProperties = this.getAdditionalProperties();
+        result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "NodeAllocatableResourceClaimStatus(" + "containers=" + this.getContainers() + ", resourceClaimName=" + this.getResourceClaimName() + ", resources=" + this.getResources() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

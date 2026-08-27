@@ -28,9 +28,6 @@ import io.fabric8.kubernetes.api.model.Volume;
 import io.fabric8.kubernetes.api.model.VolumeMount;
 import io.sundr.builder.annotations.Buildable;
 import io.sundr.builder.annotations.BuildableReference;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 
 /**
  * WorkloadPodGroupTemplateReference references the PodGroupTemplate within the Workload object.
@@ -40,12 +37,6 @@ import lombok.experimental.Accessors;
 @JsonPropertyOrder({
     "podGroupTemplateName",
     "workloadName"
-})
-@ToString
-@EqualsAndHashCode
-@Accessors(prefix = {
-    "_",
-    ""
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder", refs = {
     @BuildableReference(ObjectMeta.class),
@@ -140,6 +131,57 @@ public class WorkloadPodGroupTemplateReference implements Editable<WorkloadPodGr
 
     public void setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof WorkloadPodGroupTemplateReference)) {
+            return false;
+        }
+        WorkloadPodGroupTemplateReference other = (WorkloadPodGroupTemplateReference) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        Object this$podGroupTemplateName = this.getPodGroupTemplateName();
+        Object other$podGroupTemplateName = other.getPodGroupTemplateName();
+        if (this$podGroupTemplateName == null ? other$podGroupTemplateName != null : !this$podGroupTemplateName.equals(other$podGroupTemplateName)) {
+            return false;
+        }
+        Object this$workloadName = this.getWorkloadName();
+        Object other$workloadName = other.getWorkloadName();
+        if (this$workloadName == null ? other$workloadName != null : !this$workloadName.equals(other$workloadName)) {
+            return false;
+        }
+        Object this$additionalProperties = this.getAdditionalProperties();
+        Object other$additionalProperties = other.getAdditionalProperties();
+        if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof WorkloadPodGroupTemplateReference;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 59;
+        int result = 1;
+        Object $podGroupTemplateName = this.getPodGroupTemplateName();
+        result = result * prime + ($podGroupTemplateName == null ? 43 : $podGroupTemplateName.hashCode());
+        Object $workloadName = this.getWorkloadName();
+        result = result * prime + ($workloadName == null ? 43 : $workloadName.hashCode());
+        Object $additionalProperties = this.getAdditionalProperties();
+        result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "WorkloadPodGroupTemplateReference(" + "podGroupTemplateName=" + this.getPodGroupTemplateName() + ", workloadName=" + this.getWorkloadName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }
