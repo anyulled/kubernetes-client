@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.sundr.builder.annotations.Buildable;
+
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -59,7 +60,6 @@ public class AnyType implements Serializable {
     return value;
   }
 
-
   public static class Serializer extends JsonSerializer<AnyType> {
     @Override
     public void serialize(AnyType value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
@@ -78,13 +78,17 @@ public class AnyType implements Serializable {
 
   @java.lang.Override
   public boolean equals(final java.lang.Object o) {
-    if (o == this) return true;
-    if (!(o instanceof AnyType)) return false;
+    if (o == this)
+      return true;
+    if (!(o instanceof AnyType))
+      return false;
     final AnyType other = (AnyType) o;
-    if (!other.canEqual((java.lang.Object) this)) return false;
+    if (!other.canEqual((java.lang.Object) this))
+      return false;
     final java.lang.Object this$value = this.getValue();
     final java.lang.Object other$value = other.getValue();
-    if (this$value == null ? other$value != null : !this$value.equals(other$value)) return false;
+    if (this$value == null ? other$value != null : !this$value.equals(other$value))
+      return false;
     return true;
   }
 

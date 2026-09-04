@@ -35,6 +35,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.fabric8.kubernetes.api.builder.Editable;
 import io.fabric8.kubernetes.api.model.KubernetesResource;
 import io.sundr.builder.annotations.Buildable;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -45,7 +46,7 @@ import java.util.Objects;
 @JsonDeserialize(using = ParamValue.Deserializer.class)
 @JsonSerialize(using = ParamValue.Serializer.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"ArrayVal", "ObjectVal", "StringVal", "Type"})
+@JsonPropertyOrder({ "ArrayVal", "ObjectVal", "StringVal", "Type" })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, builderPackage = "io.fabric8.kubernetes.api.builder")
 public class ParamValue implements Editable<ParamValueBuilder>, KubernetesResource {
   private static final String TYPE_STRING = "string";
@@ -156,10 +157,10 @@ public class ParamValue implements Editable<ParamValueBuilder>, KubernetesResour
     this.additionalProperties = additionalProperties;
   }
 
-
   public static class Serializer extends JsonSerializer<ParamValue> {
     @Override
-    public void serialize(ParamValue value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    public void serialize(ParamValue value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
       if (value != null) {
         if (value.getType() == null) {
           String stringVal = value.getStringVal();
@@ -194,7 +195,6 @@ public class ParamValue implements Editable<ParamValueBuilder>, KubernetesResour
     }
   }
 
-
   public static class Deserializer extends JsonDeserializer<ParamValue> {
     @Override
     public ParamValue deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
@@ -214,30 +214,40 @@ public class ParamValue implements Editable<ParamValueBuilder>, KubernetesResour
 
   @java.lang.Override
   public java.lang.String toString() {
-    return "ParamValue(arrayVal=" + this.getArrayVal() + ", objectVal=" + this.getObjectVal() + ", stringVal=" + this.getStringVal() + ", type=" + this.getType() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+    return "ParamValue(arrayVal=" + this.getArrayVal() + ", objectVal=" + this.getObjectVal() + ", stringVal="
+        + this.getStringVal() + ", type=" + this.getType() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
   }
 
   @java.lang.Override
   public boolean equals(final java.lang.Object o) {
-    if (o == this) return true;
-    if (!(o instanceof ParamValue)) return false;
+    if (o == this)
+      return true;
+    if (!(o instanceof ParamValue))
+      return false;
     final ParamValue other = (ParamValue) o;
-    if (!other.canEqual((java.lang.Object) this)) return false;
+    if (!other.canEqual((java.lang.Object) this))
+      return false;
     final java.lang.Object this$arrayVal = this.getArrayVal();
     final java.lang.Object other$arrayVal = other.getArrayVal();
-    if (this$arrayVal == null ? other$arrayVal != null : !this$arrayVal.equals(other$arrayVal)) return false;
+    if (this$arrayVal == null ? other$arrayVal != null : !this$arrayVal.equals(other$arrayVal))
+      return false;
     final java.lang.Object this$objectVal = this.getObjectVal();
     final java.lang.Object other$objectVal = other.getObjectVal();
-    if (this$objectVal == null ? other$objectVal != null : !this$objectVal.equals(other$objectVal)) return false;
+    if (this$objectVal == null ? other$objectVal != null : !this$objectVal.equals(other$objectVal))
+      return false;
     final java.lang.Object this$stringVal = this.getStringVal();
     final java.lang.Object other$stringVal = other.getStringVal();
-    if (this$stringVal == null ? other$stringVal != null : !this$stringVal.equals(other$stringVal)) return false;
+    if (this$stringVal == null ? other$stringVal != null : !this$stringVal.equals(other$stringVal))
+      return false;
     final java.lang.Object this$type = this.getType();
     final java.lang.Object other$type = other.getType();
-    if (this$type == null ? other$type != null : !this$type.equals(other$type)) return false;
+    if (this$type == null ? other$type != null : !this$type.equals(other$type))
+      return false;
     final java.lang.Object this$additionalProperties = this.getAdditionalProperties();
     final java.lang.Object other$additionalProperties = other.getAdditionalProperties();
-    if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) return false;
+    if (this$additionalProperties == null ? other$additionalProperties != null
+        : !this$additionalProperties.equals(other$additionalProperties))
+      return false;
     return true;
   }
 

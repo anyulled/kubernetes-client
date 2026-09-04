@@ -17,6 +17,7 @@ package io.fabric8.kubernetes.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,7 @@ public class DefaultKubernetesResourceList<T extends HasMetadata> implements Kub
 
   @java.lang.Override
   public java.lang.String toString() {
-    return "DefaultKubernetesResourceList(apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ")";
+    return "DefaultKubernetesResourceList(apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind="
+        + this.getKind() + ", metadata=" + this.getMetadata() + ")";
   }
 }

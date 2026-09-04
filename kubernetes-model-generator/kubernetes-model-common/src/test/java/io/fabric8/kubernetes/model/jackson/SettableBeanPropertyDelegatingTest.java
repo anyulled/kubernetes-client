@@ -50,6 +50,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
@@ -62,6 +63,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -79,17 +81,26 @@ class SettableBeanPropertyDelegatingTest {
     // Required Jackson deserialization objects to set up the test components
     objectMapper = new ObjectMapper();
     final DeserializationConfig deserializationConfig = objectMapper.getDeserializationConfig();
-    deserializationContext = new DefaultDeserializationContext.Impl(objectMapper.getDeserializationContext().getFactory()).createDummyInstance(deserializationConfig);
+    deserializationContext = new DefaultDeserializationContext.Impl(objectMapper.getDeserializationContext().getFactory())
+        .createDummyInstance(deserializationConfig);
     final JavaType testBeanJavaType = objectMapper.constructType(TestBean.class);
     final BeanDescription testBeanDescription = deserializationConfig.introspect(testBeanJavaType);
-    final BeanDeserializer testBeanDeserializer = (BeanDeserializer) ((BeanDeserializerFactory) deserializationContext.getFactory()).buildBeanDeserializer(deserializationContext, testBeanJavaType, testBeanDescription);
+    final BeanDeserializer testBeanDeserializer = (BeanDeserializer) ((BeanDeserializerFactory) deserializationContext
+        .getFactory()).buildBeanDeserializer(deserializationContext, testBeanJavaType, testBeanDescription);
     // AnySetter used by delegator, real instance that will invoke the additionalProperties any setter in TestBean
-    final BeanPropertyDefinition anySetterDefinition = SimpleBeanPropertyDefinition.construct(deserializationConfig, testBeanDescription.findAnySetterAccessor());
-    final BeanProperty anySetterProperty = new BeanProperty.Std(anySetterDefinition.getFullName(), anySetterDefinition.getPrimaryType(), anySetterDefinition.getWrapperName(), anySetterDefinition.getPrimaryMember(), anySetterDefinition.getMetadata());
+    final BeanPropertyDefinition anySetterDefinition = SimpleBeanPropertyDefinition.construct(deserializationConfig,
+        testBeanDescription.findAnySetterAccessor());
+    final BeanProperty anySetterProperty = new BeanProperty.Std(anySetterDefinition.getFullName(),
+        anySetterDefinition.getPrimaryType(), anySetterDefinition.getWrapperName(), anySetterDefinition.getPrimaryMember(),
+        anySetterDefinition.getMetadata());
     final JavaType anySetterValueType = objectMapper.constructType(Object.class);
-    anySetter = SettableAnyProperty.constructForMethod(deserializationContext, anySetterProperty, anySetterProperty.getMember(), anySetterValueType, deserializationContext.findKeyDeserializer(objectMapper.constructType(String.class), anySetterProperty), deserializationContext.findRootValueDeserializer(anySetterValueType), null);
+    anySetter = SettableAnyProperty.constructForMethod(deserializationContext, anySetterProperty, anySetterProperty.getMember(),
+        anySetterValueType,
+        deserializationContext.findKeyDeserializer(objectMapper.constructType(String.class), anySetterProperty),
+        deserializationContext.findRootValueDeserializer(anySetterValueType), null);
     // Delegated SettableBeanProperty
-    intFieldProperty = testBeanDeserializer.findProperty("intField").withValueDeserializer(NumberDeserializers.find(int.class, null));
+    intFieldProperty = testBeanDeserializer.findProperty("intField")
+        .withValueDeserializer(NumberDeserializers.find(int.class, null));
     // Delegating SettableBeanProperty in test
     intFieldPropertyDelegating = new SettableBeanPropertyDelegating(intFieldProperty, anySetter, useAnySetter::get);
   }
@@ -100,7 +111,11 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final SettableBeanProperty result = intFieldPropertyDelegating.withValueDeserializer(null);
     // Then
-    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating).hasFieldOrPropertyWithValue("anySetter", anySetter).asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class)).extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class).isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "intField");
+    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating)
+        .hasFieldOrPropertyWithValue("anySetter", anySetter)
+        .asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class))
+        .extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class)
+        .isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "intField");
   }
 
   @Test
@@ -109,7 +124,11 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final SettableBeanProperty result = intFieldPropertyDelegating.withName(new PropertyName("overriddenName"));
     // Then
-    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating).hasFieldOrPropertyWithValue("anySetter", anySetter).asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class)).extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class).isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "overriddenName");
+    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating)
+        .hasFieldOrPropertyWithValue("anySetter", anySetter)
+        .asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class))
+        .extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class)
+        .isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "overriddenName");
   }
 
   @Test
@@ -118,7 +137,11 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final SettableBeanProperty result = intFieldPropertyDelegating.withNullProvider(null);
     // Then
-    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating).hasFieldOrPropertyWithValue("anySetter", anySetter).asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class)).extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class).isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "intField");
+    assertThat(result).isInstanceOf(SettableBeanPropertyDelegating.class).isNotSameAs(intFieldPropertyDelegating)
+        .hasFieldOrPropertyWithValue("anySetter", anySetter)
+        .asInstanceOf(InstanceOfAssertFactories.type(SettableBeanPropertyDelegating.class))
+        .extracting(SettableBeanPropertyDelegating::getDelegate).isInstanceOf(CreatorProperty.class)
+        .isNotSameAs(intFieldProperty).hasFieldOrPropertyWithValue("name", "intField");
   }
 
   @Test
@@ -127,7 +150,8 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final AnnotatedMember result = intFieldPropertyDelegating.getMember();
     // Then
-    assertThat(result).isSameAs(intFieldProperty.getMember()).extracting(am -> am.getAnnotation(JsonProperty.class).value()).isEqualTo("intField");
+    assertThat(result).isSameAs(intFieldProperty.getMember()).extracting(am -> am.getAnnotation(JsonProperty.class).value())
+        .isEqualTo("intField");
   }
 
   @Test
@@ -153,10 +177,14 @@ class SettableBeanPropertyDelegatingTest {
   void fixAccess() {
     // Given
     final JavaType testBeanJavaType = objectMapper.constructType(TestBean.class);
-    final BasicBeanDescription testBeanDescription = (BasicBeanDescription) deserializationContext.getConfig().introspect(testBeanJavaType);
-    final BeanPropertyDefinition testPropertyFieldDefinition = (testBeanDescription).findProperty(PropertyName.construct("intField"));
-    final SettableBeanProperty fieldProperty = new FieldProperty(testPropertyFieldDefinition, testBeanJavaType, null, testBeanDescription.getClassAnnotations(), testPropertyFieldDefinition.getField());
-    final SettableBeanProperty fieldPropertyDelegating = new SettableBeanPropertyDelegating(fieldProperty, anySetter, useAnySetter::get);
+    final BasicBeanDescription testBeanDescription = (BasicBeanDescription) deserializationContext.getConfig()
+        .introspect(testBeanJavaType);
+    final BeanPropertyDefinition testPropertyFieldDefinition = (testBeanDescription)
+        .findProperty(PropertyName.construct("intField"));
+    final SettableBeanProperty fieldProperty = new FieldProperty(testPropertyFieldDefinition, testBeanJavaType, null,
+        testBeanDescription.getClassAnnotations(), testPropertyFieldDefinition.getField());
+    final SettableBeanProperty fieldPropertyDelegating = new SettableBeanPropertyDelegating(fieldProperty, anySetter,
+        useAnySetter::get);
     assertThat(((AccessibleObject) fieldProperty.getMember().getMember()).isAccessible()).isFalse();
     // When
     fieldPropertyDelegating.fixAccess(deserializationContext.getConfig());
@@ -190,7 +218,7 @@ class SettableBeanPropertyDelegatingTest {
     // Given
     assertThat(intFieldProperty.visibleInView(String.class)).isTrue();
     // When
-    intFieldPropertyDelegating.setViews(new Class<?>[] {Integer.class});
+    intFieldPropertyDelegating.setViews(new Class<?>[] { Integer.class });
     // Then
     assertThat(intFieldProperty.visibleInView(String.class)).isFalse();
   }
@@ -201,24 +229,29 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final JsonIgnoreProperties result = intFieldPropertyDelegating.getContextAnnotation(JsonIgnoreProperties.class);
     // Then
-    assertThat(result).isSameAs(intFieldProperty.getContextAnnotation(JsonIgnoreProperties.class)).extracting(JsonIgnoreProperties::ignoreUnknown).isEqualTo(true);
+    assertThat(result).isSameAs(intFieldProperty.getContextAnnotation(JsonIgnoreProperties.class))
+        .extracting(JsonIgnoreProperties::ignoreUnknown).isEqualTo(true);
   }
 
   @Test
   @DisplayName("getWrapperName, should return getWrapperName result in delegate")
   void getWrapperName() {
     // Given
-    final DeserializationConfig config = deserializationContext.getConfig().withAppendedAnnotationIntrospector(new JacksonAnnotationIntrospector() {
-      @Override
-      public PropertyName findWrapperName(Annotated ann) {
-        return PropertyName.construct("WrapperNameForTest");
-      }
-    });
+    final DeserializationConfig config = deserializationContext.getConfig()
+        .withAppendedAnnotationIntrospector(new JacksonAnnotationIntrospector() {
+          @Override
+          public PropertyName findWrapperName(Annotated ann) {
+            return PropertyName.construct("WrapperNameForTest");
+          }
+        });
     final JavaType testBeanJavaType = objectMapper.constructType(TestBean.class);
     final BasicBeanDescription testBeanDescription = (BasicBeanDescription) config.introspect(testBeanJavaType);
-    final BeanPropertyDefinition testPropertyFieldDefinition = (testBeanDescription).findProperty(PropertyName.construct("intField"));
-    final SettableBeanProperty fieldProperty = new FieldProperty(testPropertyFieldDefinition, testBeanJavaType, null, testBeanDescription.getClassAnnotations(), testPropertyFieldDefinition.getField());
-    final SettableBeanProperty fieldPropertyDelegating = new SettableBeanPropertyDelegating(fieldProperty, anySetter, useAnySetter::get);
+    final BeanPropertyDefinition testPropertyFieldDefinition = (testBeanDescription)
+        .findProperty(PropertyName.construct("intField"));
+    final SettableBeanProperty fieldProperty = new FieldProperty(testPropertyFieldDefinition, testBeanJavaType, null,
+        testBeanDescription.getClassAnnotations(), testPropertyFieldDefinition.getField());
+    final SettableBeanProperty fieldPropertyDelegating = new SettableBeanPropertyDelegating(fieldProperty, anySetter,
+        useAnySetter::get);
     // When
     final PropertyName result = fieldPropertyDelegating.getWrapperName();
     // Then
@@ -265,7 +298,8 @@ class SettableBeanPropertyDelegatingTest {
     // When
     intFieldPropertyDelegating.setManagedReferenceName("the-managed-reference-name");
     // Then
-    assertThat(intFieldPropertyDelegating.getManagedReferenceName()).isEqualTo(intFieldProperty.getManagedReferenceName()).isEqualTo("the-managed-reference-name");
+    assertThat(intFieldPropertyDelegating.getManagedReferenceName()).isEqualTo(intFieldProperty.getManagedReferenceName())
+        .isEqualTo("the-managed-reference-name");
   }
 
   @Test
@@ -274,7 +308,8 @@ class SettableBeanPropertyDelegatingTest {
     // When
     intFieldPropertyDelegating.setObjectIdInfo(new ObjectIdInfo(PropertyName.construct("objectId"), null, null, null));
     // Then
-    assertThat(intFieldProperty.getObjectIdInfo()).extracting(ObjectIdInfo::getPropertyName).hasFieldOrPropertyWithValue("simpleName", "objectId");
+    assertThat(intFieldProperty.getObjectIdInfo()).extracting(ObjectIdInfo::getPropertyName)
+        .hasFieldOrPropertyWithValue("simpleName", "objectId");
   }
 
   @Test
@@ -283,7 +318,9 @@ class SettableBeanPropertyDelegatingTest {
     // When
     final SettableBeanProperty result = intFieldPropertyDelegating.withSimpleName("overridden-simple-name");
     // Then
-    assertThat(result).isNotSameAs(intFieldPropertyDelegating).returns("overridden-simple-name", SettableBeanProperty::getName).extracting("delegate").asInstanceOf(InstanceOfAssertFactories.type(CreatorProperty.class)).isNotSameAs(intFieldProperty).returns("overridden-simple-name", SettableBeanProperty::getName);
+    assertThat(result).isNotSameAs(intFieldPropertyDelegating).returns("overridden-simple-name", SettableBeanProperty::getName)
+        .extracting("delegate").asInstanceOf(InstanceOfAssertFactories.type(CreatorProperty.class))
+        .isNotSameAs(intFieldProperty).returns("overridden-simple-name", SettableBeanProperty::getName);
   }
 
   @Test
@@ -319,7 +356,6 @@ class SettableBeanPropertyDelegatingTest {
     assertThat(instance).hasFieldOrPropertyWithValue("intField", 313373).isSameAs(result);
   }
 
-
   @Nested
   @DisplayName("deserializeSetAndReturn")
   class DeserializeSetAndReturn {
@@ -335,7 +371,8 @@ class SettableBeanPropertyDelegatingTest {
     @DisplayName("validValue, should deserializeSetAndReturn in delegate")
     void validValue() throws IOException {
       try (JsonParser parser = objectMapper.createParser("313373")) {
-        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(), parser, null);
+        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(),
+            parser, null);
         parser.nextToken();
         final Object result = intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance);
         assertThat(instance).hasFieldOrPropertyWithValue("intField", 313373).isEqualTo(result);
@@ -347,10 +384,13 @@ class SettableBeanPropertyDelegatingTest {
     void invalidValueWithExceptionUsingAnySetter() throws IOException {
       useAnySetter.set(true);
       try (JsonParser parser = objectMapper.createParser("\"${a-placeholder}\"")) {
-        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(), parser, null);
+        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(),
+            parser, null);
         parser.nextToken();
         final Object result = intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance);
-        assertThat(instance).hasFieldOrPropertyWithValue("intField", 1337).hasFieldOrPropertyWithValue("additionalProperties", Collections.singletonMap("intField", "${a-placeholder}")).isEqualTo(result);
+        assertThat(instance).hasFieldOrPropertyWithValue("intField", 1337)
+            .hasFieldOrPropertyWithValue("additionalProperties", Collections.singletonMap("intField", "${a-placeholder}"))
+            .isEqualTo(result);
       }
     }
 
@@ -358,9 +398,12 @@ class SettableBeanPropertyDelegatingTest {
     @DisplayName("deserializeSetAndReturn, with anySetter disabled and throws Exception, should throw Exception")
     void deserializeSetAndReturnWithExceptionNotUsingAnySetter() throws IOException {
       try (JsonParser parser = objectMapper.createParser("\"${a-placeholder}\"")) {
-        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(), parser, null);
+        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(),
+            parser, null);
         parser.nextToken();
-        assertThatThrownBy(() -> intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance)).isInstanceOf(InvalidFormatException.class).hasMessageContainingAll("Cannot deserialize value of type `int`", "\"${a-placeholder}\"");
+        assertThatThrownBy(() -> intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance))
+            .isInstanceOf(InvalidFormatException.class)
+            .hasMessageContainingAll("Cannot deserialize value of type `int`", "\"${a-placeholder}\"");
       }
     }
 
@@ -369,26 +412,34 @@ class SettableBeanPropertyDelegatingTest {
     void deserializeSetAndReturnWithExceptionAndNullAnySetter() throws IOException {
       intFieldPropertyDelegating = new SettableBeanPropertyDelegating(intFieldProperty, null, () -> true);
       try (JsonParser parser = objectMapper.createParser("\"${a-placeholder}\"")) {
-        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(), parser, null);
+        final DefaultDeserializationContext ctx = deserializationContext.createInstance(deserializationContext.getConfig(),
+            parser, null);
         parser.nextToken();
-        assertThatThrownBy(() -> intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance)).isInstanceOf(InvalidFormatException.class).hasMessageContainingAll("Cannot deserialize value of type `int`", "\"${a-placeholder}\"");
+        assertThatThrownBy(() -> intFieldPropertyDelegating.deserializeSetAndReturn(parser, ctx, instance))
+            .isInstanceOf(InvalidFormatException.class)
+            .hasMessageContainingAll("Cannot deserialize value of type `int`", "\"${a-placeholder}\"");
       }
     }
   }
-
 
   @Nested
   class ReflectionTest {
     @Test
     @DisplayName("All concrete superclass methods are implemented by SettableBeanPropertyDelegating")
     void allMethodsFromSuperclassAreImplementedByDelegatingClass() {
-      final Map<MethodSignature, Boolean> superclassMethods = Stream.of(SettableBeanProperty.class.getDeclaredMethods()).filter(m -> !Modifier.isFinal(m.getModifiers())).filter(m -> !Modifier.isPrivate(m.getModifiers())).filter(m -> !Modifier.isAbstract(m.getModifiers())).filter(m -> !m.getName().startsWith("_")).map(MethodSignature::from).collect(Collectors.toMap(ms -> ms, ms -> false));
-      Stream.concat(Stream.of(SettableBeanProperty.Delegating.class.getDeclaredMethods()), Stream.of(SettableBeanPropertyDelegating.class.getDeclaredMethods())).map(MethodSignature::from).forEach(ms -> superclassMethods.computeIfPresent(ms, (k, v) -> true));
-      List<MethodSignature> missing = superclassMethods.entrySet().stream().filter(e -> !e.getValue()).map(Map.Entry::getKey).collect(Collectors.toList());
+      final Map<MethodSignature, Boolean> superclassMethods = Stream.of(SettableBeanProperty.class.getDeclaredMethods())
+          .filter(m -> !Modifier.isFinal(m.getModifiers())).filter(m -> !Modifier.isPrivate(m.getModifiers()))
+          .filter(m -> !Modifier.isAbstract(m.getModifiers())).filter(m -> !m.getName().startsWith("_"))
+          .map(MethodSignature::from).collect(Collectors.toMap(ms -> ms, ms -> false));
+      Stream
+          .concat(Stream.of(SettableBeanProperty.Delegating.class.getDeclaredMethods()),
+              Stream.of(SettableBeanPropertyDelegating.class.getDeclaredMethods()))
+          .map(MethodSignature::from).forEach(ms -> superclassMethods.computeIfPresent(ms, (k, v) -> true));
+      List<MethodSignature> missing = superclassMethods.entrySet().stream().filter(e -> !e.getValue()).map(Map.Entry::getKey)
+          .collect(Collectors.toList());
       assertThat(missing).withFailMessage("Missing method overrides: %s", missing).isEmpty();
     }
   }
-
 
   @JsonIgnoreProperties(ignoreUnknown = true)
   private static final class TestBean {
@@ -413,7 +464,6 @@ class SettableBeanPropertyDelegatingTest {
     }
   }
 
-
   private static final class MethodSignature {
     private final Class<?> returnType;
     private final String name;
@@ -437,16 +487,21 @@ class SettableBeanPropertyDelegatingTest {
 
     @java.lang.Override
     public boolean equals(final java.lang.Object o) {
-      if (o == this) return true;
-      if (!(o instanceof SettableBeanPropertyDelegatingTest.MethodSignature)) return false;
+      if (o == this)
+        return true;
+      if (!(o instanceof SettableBeanPropertyDelegatingTest.MethodSignature))
+        return false;
       final SettableBeanPropertyDelegatingTest.MethodSignature other = (SettableBeanPropertyDelegatingTest.MethodSignature) o;
       final java.lang.Object this$returnType = this.returnType;
       final java.lang.Object other$returnType = other.returnType;
-      if (this$returnType == null ? other$returnType != null : !this$returnType.equals(other$returnType)) return false;
+      if (this$returnType == null ? other$returnType != null : !this$returnType.equals(other$returnType))
+        return false;
       final java.lang.Object this$name = this.name;
       final java.lang.Object other$name = other.name;
-      if (this$name == null ? other$name != null : !this$name.equals(other$name)) return false;
-      if (!java.util.Arrays.deepEquals(this.parameterTypes, other.parameterTypes)) return false;
+      if (this$name == null ? other$name != null : !this$name.equals(other$name))
+        return false;
+      if (!java.util.Arrays.deepEquals(this.parameterTypes, other.parameterTypes))
+        return false;
       return true;
     }
 
