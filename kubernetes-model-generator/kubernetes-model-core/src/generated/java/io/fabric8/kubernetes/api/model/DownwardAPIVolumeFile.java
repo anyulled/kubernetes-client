@@ -195,6 +195,11 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
         if (this$resourceFieldRef == null ? other$resourceFieldRef != null : !this$resourceFieldRef.equals(other$resourceFieldRef)) {
             return false;
         }
+        Object this$user = this.getUser();
+        Object other$user = other.getUser();
+        if (this$user == null ? other$user != null : !this$user.equals(other$user)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -219,6 +224,8 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
         result = result * prime + ($path == null ? 43 : $path.hashCode());
         Object $resourceFieldRef = this.getResourceFieldRef();
         result = result * prime + ($resourceFieldRef == null ? 43 : $resourceFieldRef.hashCode());
+        Object $user = this.getUser();
+        result = result * prime + ($user == null ? 43 : $user.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -226,7 +233,7 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
 
     @Override
     public String toString() {
-        return "DownwardAPIVolumeFile(" + "fieldRef=" + this.getFieldRef() + ", mode=" + this.getMode() + ", path=" + this.getPath() + ", resourceFieldRef=" + this.getResourceFieldRef() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "DownwardAPIVolumeFile(" + "fieldRef=" + this.getFieldRef() + ", mode=" + this.getMode() + ", path=" + this.getPath() + ", resourceFieldRef=" + this.getResourceFieldRef() + ", user=" + this.getUser() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

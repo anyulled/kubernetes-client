@@ -338,6 +338,11 @@ public class ResourceSliceSpec implements Editable<ResourceSliceSpecBuilder>, Ku
         if (this$nodeSelector == null ? other$nodeSelector != null : !this$nodeSelector.equals(other$nodeSelector)) {
             return false;
         }
+        Object this$partitionTypeAttribute = this.getPartitionTypeAttribute();
+        Object other$partitionTypeAttribute = other.getPartitionTypeAttribute();
+        if (this$partitionTypeAttribute == null ? other$partitionTypeAttribute != null : !this$partitionTypeAttribute.equals(other$partitionTypeAttribute)) {
+            return false;
+        }
         Object this$perDeviceNodeSelection = this.getPerDeviceNodeSelection();
         Object other$perDeviceNodeSelection = other.getPerDeviceNodeSelection();
         if (this$perDeviceNodeSelection == null ? other$perDeviceNodeSelection != null : !this$perDeviceNodeSelection.equals(other$perDeviceNodeSelection)) {
@@ -351,6 +356,11 @@ public class ResourceSliceSpec implements Editable<ResourceSliceSpecBuilder>, Ku
         Object this$sharedCounters = this.getSharedCounters();
         Object other$sharedCounters = other.getSharedCounters();
         if (this$sharedCounters == null ? other$sharedCounters != null : !this$sharedCounters.equals(other$sharedCounters)) {
+            return false;
+        }
+        Object this$skipNodeOperations = this.getSkipNodeOperations();
+        Object other$skipNodeOperations = other.getSkipNodeOperations();
+        if (this$skipNodeOperations == null ? other$skipNodeOperations != null : !this$skipNodeOperations.equals(other$skipNodeOperations)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -379,12 +389,16 @@ public class ResourceSliceSpec implements Editable<ResourceSliceSpecBuilder>, Ku
         result = result * prime + ($nodeName == null ? 43 : $nodeName.hashCode());
         Object $nodeSelector = this.getNodeSelector();
         result = result * prime + ($nodeSelector == null ? 43 : $nodeSelector.hashCode());
+        Object $partitionTypeAttribute = this.getPartitionTypeAttribute();
+        result = result * prime + ($partitionTypeAttribute == null ? 43 : $partitionTypeAttribute.hashCode());
         Object $perDeviceNodeSelection = this.getPerDeviceNodeSelection();
         result = result * prime + ($perDeviceNodeSelection == null ? 43 : $perDeviceNodeSelection.hashCode());
         Object $pool = this.getPool();
         result = result * prime + ($pool == null ? 43 : $pool.hashCode());
         Object $sharedCounters = this.getSharedCounters();
         result = result * prime + ($sharedCounters == null ? 43 : $sharedCounters.hashCode());
+        Object $skipNodeOperations = this.getSkipNodeOperations();
+        result = result * prime + ($skipNodeOperations == null ? 43 : $skipNodeOperations.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -392,7 +406,7 @@ public class ResourceSliceSpec implements Editable<ResourceSliceSpecBuilder>, Ku
 
     @Override
     public String toString() {
-        return "ResourceSliceSpec(" + "allNodes=" + this.getAllNodes() + ", devices=" + this.getDevices() + ", driver=" + this.getDriver() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", perDeviceNodeSelection=" + this.getPerDeviceNodeSelection() + ", pool=" + this.getPool() + ", sharedCounters=" + this.getSharedCounters() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "ResourceSliceSpec(" + "allNodes=" + this.getAllNodes() + ", devices=" + this.getDevices() + ", driver=" + this.getDriver() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", partitionTypeAttribute=" + this.getPartitionTypeAttribute() + ", perDeviceNodeSelection=" + this.getPerDeviceNodeSelection() + ", pool=" + this.getPool() + ", sharedCounters=" + this.getSharedCounters() + ", skipNodeOperations=" + this.getSkipNodeOperations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

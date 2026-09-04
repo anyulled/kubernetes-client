@@ -187,10 +187,10 @@ public class StorageVersionMigrationList implements Editable<StorageVersionMigra
         if (o == this) {
             return true;
         }
-        if (!(o instanceof VolumeAttributesClassList)) {
+        if (!(o instanceof StorageVersionMigrationList)) {
             return false;
         }
-        VolumeAttributesClassList other = (VolumeAttributesClassList) o;
+        StorageVersionMigrationList other = (StorageVersionMigrationList) o;
         if (!other.canEqual(this)) {
             return false;
         }
@@ -223,7 +223,7 @@ public class StorageVersionMigrationList implements Editable<StorageVersionMigra
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof VolumeAttributesClassList;
+        return other instanceof StorageVersionMigrationList;
     }
 
     @Override
@@ -245,7 +245,7 @@ public class StorageVersionMigrationList implements Editable<StorageVersionMigra
 
     @Override
     public String toString() {
-        return "VolumeAttributesClassList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "StorageVersionMigrationList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

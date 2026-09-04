@@ -158,21 +158,26 @@ public class NodeAllocatableMapping implements Editable<NodeAllocatableMappingBu
         if (o == this) {
             return true;
         }
-        if (!(o instanceof NodeAllocatableResourceMapping)) {
+        if (!(o instanceof NodeAllocatableMapping)) {
             return false;
         }
-        NodeAllocatableResourceMapping other = (NodeAllocatableResourceMapping) o;
+        NodeAllocatableMapping other = (NodeAllocatableMapping) o;
         if (!other.canEqual(this)) {
-            return false;
-        }
-        Object this$allocationMultiplier = this.getAllocationMultiplier();
-        Object other$allocationMultiplier = other.getAllocationMultiplier();
-        if (this$allocationMultiplier == null ? other$allocationMultiplier != null : !this$allocationMultiplier.equals(other$allocationMultiplier)) {
             return false;
         }
         Object this$capacityKey = this.getCapacityKey();
         Object other$capacityKey = other.getCapacityKey();
         if (this$capacityKey == null ? other$capacityKey != null : !this$capacityKey.equals(other$capacityKey)) {
+            return false;
+        }
+        Object this$capacityMultiplier = this.getCapacityMultiplier();
+        Object other$capacityMultiplier = other.getCapacityMultiplier();
+        if (this$capacityMultiplier == null ? other$capacityMultiplier != null : !this$capacityMultiplier.equals(other$capacityMultiplier)) {
+            return false;
+        }
+        Object this$deviceMultiplier = this.getDeviceMultiplier();
+        Object other$deviceMultiplier = other.getDeviceMultiplier();
+        if (this$deviceMultiplier == null ? other$deviceMultiplier != null : !this$deviceMultiplier.equals(other$deviceMultiplier)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -184,17 +189,19 @@ public class NodeAllocatableMapping implements Editable<NodeAllocatableMappingBu
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof NodeAllocatableResourceMapping;
+        return other instanceof NodeAllocatableMapping;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $allocationMultiplier = this.getAllocationMultiplier();
-        result = result * prime + ($allocationMultiplier == null ? 43 : $allocationMultiplier.hashCode());
         Object $capacityKey = this.getCapacityKey();
         result = result * prime + ($capacityKey == null ? 43 : $capacityKey.hashCode());
+        Object $capacityMultiplier = this.getCapacityMultiplier();
+        result = result * prime + ($capacityMultiplier == null ? 43 : $capacityMultiplier.hashCode());
+        Object $deviceMultiplier = this.getDeviceMultiplier();
+        result = result * prime + ($deviceMultiplier == null ? 43 : $deviceMultiplier.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -202,7 +209,7 @@ public class NodeAllocatableMapping implements Editable<NodeAllocatableMappingBu
 
     @Override
     public String toString() {
-        return "NodeAllocatableResourceMapping(" + "allocationMultiplier=" + this.getAllocationMultiplier() + ", capacityKey=" + this.getCapacityKey() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "NodeAllocatableMapping(" + "capacityKey=" + this.getCapacityKey() + ", capacityMultiplier=" + this.getCapacityMultiplier() + ", deviceMultiplier=" + this.getDeviceMultiplier() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

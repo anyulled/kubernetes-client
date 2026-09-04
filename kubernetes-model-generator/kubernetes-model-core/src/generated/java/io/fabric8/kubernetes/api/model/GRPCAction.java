@@ -135,6 +135,11 @@ public class GRPCAction implements Editable<GRPCActionBuilder>, KubernetesResour
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$mode = this.getMode();
+        Object other$mode = other.getMode();
+        if (this$mode == null ? other$mode != null : !this$mode.equals(other$mode)) {
+            return false;
+        }
         Object this$port = this.getPort();
         Object other$port = other.getPort();
         if (this$port == null ? other$port != null : !this$port.equals(other$port)) {
@@ -161,6 +166,8 @@ public class GRPCAction implements Editable<GRPCActionBuilder>, KubernetesResour
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $mode = this.getMode();
+        result = result * prime + ($mode == null ? 43 : $mode.hashCode());
         Object $port = this.getPort();
         result = result * prime + ($port == null ? 43 : $port.hashCode());
         Object $service = this.getService();
@@ -172,7 +179,7 @@ public class GRPCAction implements Editable<GRPCActionBuilder>, KubernetesResour
 
     @Override
     public String toString() {
-        return "GRPCAction(" + "port=" + this.getPort() + ", service=" + this.getService() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "GRPCAction(" + "mode=" + this.getMode() + ", port=" + this.getPort() + ", service=" + this.getService() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -220,6 +220,11 @@ public class ClusterTrustBundleProjection implements Editable<ClusterTrustBundle
         if (this$signerName == null ? other$signerName != null : !this$signerName.equals(other$signerName)) {
             return false;
         }
+        Object this$user = this.getUser();
+        Object other$user = other.getUser();
+        if (this$user == null ? other$user != null : !this$user.equals(other$user)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -246,6 +251,8 @@ public class ClusterTrustBundleProjection implements Editable<ClusterTrustBundle
         result = result * prime + ($path == null ? 43 : $path.hashCode());
         Object $signerName = this.getSignerName();
         result = result * prime + ($signerName == null ? 43 : $signerName.hashCode());
+        Object $user = this.getUser();
+        result = result * prime + ($user == null ? 43 : $user.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -253,7 +260,7 @@ public class ClusterTrustBundleProjection implements Editable<ClusterTrustBundle
 
     @Override
     public String toString() {
-        return "ClusterTrustBundleProjection(" + "labelSelector=" + this.getLabelSelector() + ", name=" + this.getName() + ", optional=" + this.getOptional() + ", path=" + this.getPath() + ", signerName=" + this.getSignerName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "ClusterTrustBundleProjection(" + "labelSelector=" + this.getLabelSelector() + ", name=" + this.getName() + ", optional=" + this.getOptional() + ", path=" + this.getPath() + ", signerName=" + this.getSignerName() + ", user=" + this.getUser() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

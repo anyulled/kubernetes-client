@@ -121,16 +121,16 @@ public class PodGroupSchedulingConstraints implements Editable<PodGroupSchedulin
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ServiceCIDRSpec)) {
+        if (!(o instanceof PodGroupSchedulingConstraints)) {
             return false;
         }
-        ServiceCIDRSpec other = (ServiceCIDRSpec) o;
+        PodGroupSchedulingConstraints other = (PodGroupSchedulingConstraints) o;
         if (!other.canEqual(this)) {
             return false;
         }
-        Object this$cidrs = this.getCidrs();
-        Object other$cidrs = other.getCidrs();
-        if (this$cidrs == null ? other$cidrs != null : !this$cidrs.equals(other$cidrs)) {
+        Object this$topology = this.getTopology();
+        Object other$topology = other.getTopology();
+        if (this$topology == null ? other$topology != null : !this$topology.equals(other$topology)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -142,15 +142,15 @@ public class PodGroupSchedulingConstraints implements Editable<PodGroupSchedulin
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof ServiceCIDRSpec;
+        return other instanceof PodGroupSchedulingConstraints;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $cidrs = this.getCidrs();
-        result = result * prime + ($cidrs == null ? 43 : $cidrs.hashCode());
+        Object $topology = this.getTopology();
+        result = result * prime + ($topology == null ? 43 : $topology.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -158,7 +158,7 @@ public class PodGroupSchedulingConstraints implements Editable<PodGroupSchedulin
 
     @Override
     public String toString() {
-        return "ServiceCIDRSpec(" + "cidrs=" + this.getCidrs() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodGroupSchedulingConstraints(" + "topology=" + this.getTopology() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

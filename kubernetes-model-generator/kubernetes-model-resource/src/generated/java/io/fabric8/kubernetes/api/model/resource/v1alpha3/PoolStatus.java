@@ -373,6 +373,11 @@ public class PoolStatus implements Editable<PoolStatusBuilder>, KubernetesResour
         if (this$nodeName == null ? other$nodeName != null : !this$nodeName.equals(other$nodeName)) {
             return false;
         }
+        Object this$partitionSummary = this.getPartitionSummary();
+        Object other$partitionSummary = other.getPartitionSummary();
+        if (this$partitionSummary == null ? other$partitionSummary != null : !this$partitionSummary.equals(other$partitionSummary)) {
+            return false;
+        }
         Object this$poolName = this.getPoolName();
         Object other$poolName = other.getPoolName();
         if (this$poolName == null ? other$poolName != null : !this$poolName.equals(other$poolName)) {
@@ -381,6 +386,11 @@ public class PoolStatus implements Editable<PoolStatusBuilder>, KubernetesResour
         Object this$resourceSliceCount = this.getResourceSliceCount();
         Object other$resourceSliceCount = other.getResourceSliceCount();
         if (this$resourceSliceCount == null ? other$resourceSliceCount != null : !this$resourceSliceCount.equals(other$resourceSliceCount)) {
+            return false;
+        }
+        Object this$shareableSummary = this.getShareableSummary();
+        Object other$shareableSummary = other.getShareableSummary();
+        if (this$shareableSummary == null ? other$shareableSummary != null : !this$shareableSummary.equals(other$shareableSummary)) {
             return false;
         }
         Object this$totalDevices = this.getTotalDevices();
@@ -424,10 +434,14 @@ public class PoolStatus implements Editable<PoolStatusBuilder>, KubernetesResour
         result = result * prime + ($generation == null ? 43 : $generation.hashCode());
         Object $nodeName = this.getNodeName();
         result = result * prime + ($nodeName == null ? 43 : $nodeName.hashCode());
+        Object $partitionSummary = this.getPartitionSummary();
+        result = result * prime + ($partitionSummary == null ? 43 : $partitionSummary.hashCode());
         Object $poolName = this.getPoolName();
         result = result * prime + ($poolName == null ? 43 : $poolName.hashCode());
         Object $resourceSliceCount = this.getResourceSliceCount();
         result = result * prime + ($resourceSliceCount == null ? 43 : $resourceSliceCount.hashCode());
+        Object $shareableSummary = this.getShareableSummary();
+        result = result * prime + ($shareableSummary == null ? 43 : $shareableSummary.hashCode());
         Object $totalDevices = this.getTotalDevices();
         result = result * prime + ($totalDevices == null ? 43 : $totalDevices.hashCode());
         Object $unavailableDevices = this.getUnavailableDevices();
@@ -441,7 +455,7 @@ public class PoolStatus implements Editable<PoolStatusBuilder>, KubernetesResour
 
     @Override
     public String toString() {
-        return "PoolStatus(" + "allocatedDevices=" + this.getAllocatedDevices() + ", availableDevices=" + this.getAvailableDevices() + ", driver=" + this.getDriver() + ", generation=" + this.getGeneration() + ", nodeName=" + this.getNodeName() + ", poolName=" + this.getPoolName() + ", resourceSliceCount=" + this.getResourceSliceCount() + ", totalDevices=" + this.getTotalDevices() + ", unavailableDevices=" + this.getUnavailableDevices() + ", validationError=" + this.getValidationError() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PoolStatus(" + "allocatedDevices=" + this.getAllocatedDevices() + ", availableDevices=" + this.getAvailableDevices() + ", driver=" + this.getDriver() + ", generation=" + this.getGeneration() + ", nodeName=" + this.getNodeName() + ", partitionSummary=" + this.getPartitionSummary() + ", poolName=" + this.getPoolName() + ", resourceSliceCount=" + this.getResourceSliceCount() + ", shareableSummary=" + this.getShareableSummary() + ", totalDevices=" + this.getTotalDevices() + ", unavailableDevices=" + this.getUnavailableDevices() + ", validationError=" + this.getValidationError() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

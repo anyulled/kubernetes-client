@@ -157,31 +157,26 @@ public class TypedLocalObjectReference implements Editable<TypedLocalObjectRefer
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ParentReference)) {
+        if (!(o instanceof TypedLocalObjectReference)) {
             return false;
         }
-        ParentReference other = (ParentReference) o;
+        TypedLocalObjectReference other = (TypedLocalObjectReference) o;
         if (!other.canEqual(this)) {
             return false;
         }
-        Object this$group = this.getGroup();
-        Object other$group = other.getGroup();
-        if (this$group == null ? other$group != null : !this$group.equals(other$group)) {
+        Object this$apiGroup = this.getApiGroup();
+        Object other$apiGroup = other.getApiGroup();
+        if (this$apiGroup == null ? other$apiGroup != null : !this$apiGroup.equals(other$apiGroup)) {
+            return false;
+        }
+        Object this$kind = this.getKind();
+        Object other$kind = other.getKind();
+        if (this$kind == null ? other$kind != null : !this$kind.equals(other$kind)) {
             return false;
         }
         Object this$name = this.getName();
         Object other$name = other.getName();
         if (this$name == null ? other$name != null : !this$name.equals(other$name)) {
-            return false;
-        }
-        Object this$namespace = this.getNamespace();
-        Object other$namespace = other.getNamespace();
-        if (this$namespace == null ? other$namespace != null : !this$namespace.equals(other$namespace)) {
-            return false;
-        }
-        Object this$resource = this.getResource();
-        Object other$resource = other.getResource();
-        if (this$resource == null ? other$resource != null : !this$resource.equals(other$resource)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -193,21 +188,19 @@ public class TypedLocalObjectReference implements Editable<TypedLocalObjectRefer
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof ParentReference;
+        return other instanceof TypedLocalObjectReference;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $group = this.getGroup();
-        result = result * prime + ($group == null ? 43 : $group.hashCode());
+        Object $apiGroup = this.getApiGroup();
+        result = result * prime + ($apiGroup == null ? 43 : $apiGroup.hashCode());
+        Object $kind = this.getKind();
+        result = result * prime + ($kind == null ? 43 : $kind.hashCode());
         Object $name = this.getName();
         result = result * prime + ($name == null ? 43 : $name.hashCode());
-        Object $namespace = this.getNamespace();
-        result = result * prime + ($namespace == null ? 43 : $namespace.hashCode());
-        Object $resource = this.getResource();
-        result = result * prime + ($resource == null ? 43 : $resource.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -215,7 +208,7 @@ public class TypedLocalObjectReference implements Editable<TypedLocalObjectRefer
 
     @Override
     public String toString() {
-        return "ParentReference(" + "group=" + this.getGroup() + ", name=" + this.getName() + ", namespace=" + this.getNamespace() + ", resource=" + this.getResource() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "TypedLocalObjectReference(" + "apiGroup=" + this.getApiGroup() + ", kind=" + this.getKind() + ", name=" + this.getName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -239,6 +239,11 @@ public class VolumeMount implements Editable<VolumeMountBuilder>, KubernetesReso
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$bindMountOptions = this.getBindMountOptions();
+        Object other$bindMountOptions = other.getBindMountOptions();
+        if (this$bindMountOptions == null ? other$bindMountOptions != null : !this$bindMountOptions.equals(other$bindMountOptions)) {
+            return false;
+        }
         Object this$mountPath = this.getMountPath();
         Object other$mountPath = other.getMountPath();
         if (this$mountPath == null ? other$mountPath != null : !this$mountPath.equals(other$mountPath)) {
@@ -290,6 +295,8 @@ public class VolumeMount implements Editable<VolumeMountBuilder>, KubernetesReso
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $bindMountOptions = this.getBindMountOptions();
+        result = result * prime + ($bindMountOptions == null ? 43 : $bindMountOptions.hashCode());
         Object $mountPath = this.getMountPath();
         result = result * prime + ($mountPath == null ? 43 : $mountPath.hashCode());
         Object $mountPropagation = this.getMountPropagation();
@@ -311,7 +318,7 @@ public class VolumeMount implements Editable<VolumeMountBuilder>, KubernetesReso
 
     @Override
     public String toString() {
-        return "VolumeMount(" + "mountPath=" + this.getMountPath() + ", mountPropagation=" + this.getMountPropagation() + ", name=" + this.getName() + ", readOnly=" + this.getReadOnly() + ", recursiveReadOnly=" + this.getRecursiveReadOnly() + ", subPath=" + this.getSubPath() + ", subPathExpr=" + this.getSubPathExpr() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "VolumeMount(" + "bindMountOptions=" + this.getBindMountOptions() + ", mountPath=" + this.getMountPath() + ", mountPropagation=" + this.getMountPropagation() + ", name=" + this.getName() + ", readOnly=" + this.getReadOnly() + ", recursiveReadOnly=" + this.getRecursiveReadOnly() + ", subPath=" + this.getSubPath() + ", subPathExpr=" + this.getSubPathExpr() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

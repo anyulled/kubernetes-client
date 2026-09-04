@@ -261,6 +261,11 @@ public class NodeSpec implements Editable<NodeSpecBuilder>, KubernetesResource
         if (this$podCIDRs == null ? other$podCIDRs != null : !this$podCIDRs.equals(other$podCIDRs)) {
             return false;
         }
+        Object this$podPreemptionPolicy = this.getPodPreemptionPolicy();
+        Object other$podPreemptionPolicy = other.getPodPreemptionPolicy();
+        if (this$podPreemptionPolicy == null ? other$podPreemptionPolicy != null : !this$podPreemptionPolicy.equals(other$podPreemptionPolicy)) {
+            return false;
+        }
         Object this$providerID = this.getProviderID();
         Object other$providerID = other.getProviderID();
         if (this$providerID == null ? other$providerID != null : !this$providerID.equals(other$providerID)) {
@@ -300,6 +305,8 @@ public class NodeSpec implements Editable<NodeSpecBuilder>, KubernetesResource
         result = result * prime + ($podCIDR == null ? 43 : $podCIDR.hashCode());
         Object $podCIDRs = this.getPodCIDRs();
         result = result * prime + ($podCIDRs == null ? 43 : $podCIDRs.hashCode());
+        Object $podPreemptionPolicy = this.getPodPreemptionPolicy();
+        result = result * prime + ($podPreemptionPolicy == null ? 43 : $podPreemptionPolicy.hashCode());
         Object $providerID = this.getProviderID();
         result = result * prime + ($providerID == null ? 43 : $providerID.hashCode());
         Object $taints = this.getTaints();
@@ -313,7 +320,7 @@ public class NodeSpec implements Editable<NodeSpecBuilder>, KubernetesResource
 
     @Override
     public String toString() {
-        return "NodeSpec(" + "configSource=" + this.getConfigSource() + ", externalID=" + this.getExternalID() + ", podCIDR=" + this.getPodCIDR() + ", podCIDRs=" + this.getPodCIDRs() + ", providerID=" + this.getProviderID() + ", taints=" + this.getTaints() + ", unschedulable=" + this.getUnschedulable() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "NodeSpec(" + "configSource=" + this.getConfigSource() + ", externalID=" + this.getExternalID() + ", podCIDR=" + this.getPodCIDR() + ", podCIDRs=" + this.getPodCIDRs() + ", podPreemptionPolicy=" + this.getPodPreemptionPolicy() + ", providerID=" + this.getProviderID() + ", taints=" + this.getTaints() + ", unschedulable=" + this.getUnschedulable() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

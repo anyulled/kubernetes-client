@@ -426,9 +426,9 @@ public class Device implements Editable<DeviceBuilder>, KubernetesResource
         if (this$name == null ? other$name != null : !this$name.equals(other$name)) {
             return false;
         }
-        Object this$nodeAllocatableResourceMappings = this.getNodeAllocatableResourceMappings();
-        Object other$nodeAllocatableResourceMappings = other.getNodeAllocatableResourceMappings();
-        if (this$nodeAllocatableResourceMappings == null ? other$nodeAllocatableResourceMappings != null : !this$nodeAllocatableResourceMappings.equals(other$nodeAllocatableResourceMappings)) {
+        Object this$nodeAllocatableResources = this.getNodeAllocatableResources();
+        Object other$nodeAllocatableResources = other.getNodeAllocatableResources();
+        if (this$nodeAllocatableResources == null ? other$nodeAllocatableResources != null : !this$nodeAllocatableResources.equals(other$nodeAllocatableResources)) {
             return false;
         }
         Object this$nodeName = this.getNodeName();
@@ -480,8 +480,8 @@ public class Device implements Editable<DeviceBuilder>, KubernetesResource
         result = result * prime + ($consumesCounters == null ? 43 : $consumesCounters.hashCode());
         Object $name = this.getName();
         result = result * prime + ($name == null ? 43 : $name.hashCode());
-        Object $nodeAllocatableResourceMappings = this.getNodeAllocatableResourceMappings();
-        result = result * prime + ($nodeAllocatableResourceMappings == null ? 43 : $nodeAllocatableResourceMappings.hashCode());
+        Object $nodeAllocatableResources = this.getNodeAllocatableResources();
+        result = result * prime + ($nodeAllocatableResources == null ? 43 : $nodeAllocatableResources.hashCode());
         Object $nodeName = this.getNodeName();
         result = result * prime + ($nodeName == null ? 43 : $nodeName.hashCode());
         Object $nodeSelector = this.getNodeSelector();
@@ -495,7 +495,7 @@ public class Device implements Editable<DeviceBuilder>, KubernetesResource
 
     @Override
     public String toString() {
-        return "Device(" + "allNodes=" + this.getAllNodes() + ", allowMultipleAllocations=" + this.getAllowMultipleAllocations() + ", attributes=" + this.getAttributes() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", bindsToNode=" + this.getBindsToNode() + ", capacity=" + this.getCapacity() + ", consumesCounters=" + this.getConsumesCounters() + ", name=" + this.getName() + ", nodeAllocatableResourceMappings=" + this.getNodeAllocatableResourceMappings() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", taints=" + this.getTaints() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "Device(" + "allNodes=" + this.getAllNodes() + ", allowMultipleAllocations=" + this.getAllowMultipleAllocations() + ", attributes=" + this.getAttributes() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", bindsToNode=" + this.getBindsToNode() + ", capacity=" + this.getCapacity() + ", consumesCounters=" + this.getConsumesCounters() + ", name=" + this.getName() + ", nodeAllocatableResources=" + this.getNodeAllocatableResources() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", taints=" + this.getTaints() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

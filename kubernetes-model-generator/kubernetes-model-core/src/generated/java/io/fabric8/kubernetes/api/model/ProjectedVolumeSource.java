@@ -144,6 +144,11 @@ public class ProjectedVolumeSource implements Editable<ProjectedVolumeSourceBuil
         if (this$defaultMode == null ? other$defaultMode != null : !this$defaultMode.equals(other$defaultMode)) {
             return false;
         }
+        Object this$defaultUser = this.getDefaultUser();
+        Object other$defaultUser = other.getDefaultUser();
+        if (this$defaultUser == null ? other$defaultUser != null : !this$defaultUser.equals(other$defaultUser)) {
+            return false;
+        }
         Object this$sources = this.getSources();
         Object other$sources = other.getSources();
         if (this$sources == null ? other$sources != null : !this$sources.equals(other$sources)) {
@@ -167,6 +172,8 @@ public class ProjectedVolumeSource implements Editable<ProjectedVolumeSourceBuil
         int result = 1;
         Object $defaultMode = this.getDefaultMode();
         result = result * prime + ($defaultMode == null ? 43 : $defaultMode.hashCode());
+        Object $defaultUser = this.getDefaultUser();
+        result = result * prime + ($defaultUser == null ? 43 : $defaultUser.hashCode());
         Object $sources = this.getSources();
         result = result * prime + ($sources == null ? 43 : $sources.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -176,7 +183,7 @@ public class ProjectedVolumeSource implements Editable<ProjectedVolumeSourceBuil
 
     @Override
     public String toString() {
-        return "ProjectedVolumeSource(" + "defaultMode=" + this.getDefaultMode() + ", sources=" + this.getSources() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "ProjectedVolumeSource(" + "defaultMode=" + this.getDefaultMode() + ", defaultUser=" + this.getDefaultUser() + ", sources=" + this.getSources() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

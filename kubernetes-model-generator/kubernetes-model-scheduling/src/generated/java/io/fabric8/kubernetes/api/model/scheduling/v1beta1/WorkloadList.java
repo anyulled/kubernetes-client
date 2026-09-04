@@ -187,10 +187,10 @@ public class WorkloadList implements Editable<WorkloadListBuilder>, KubernetesRe
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ServiceCIDRList)) {
+        if (!(o instanceof WorkloadList)) {
             return false;
         }
-        ServiceCIDRList other = (ServiceCIDRList) o;
+        WorkloadList other = (WorkloadList) o;
         if (!other.canEqual(this)) {
             return false;
         }
@@ -223,7 +223,7 @@ public class WorkloadList implements Editable<WorkloadListBuilder>, KubernetesRe
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof ServiceCIDRList;
+        return other instanceof WorkloadList;
     }
 
     @Override
@@ -245,7 +245,7 @@ public class WorkloadList implements Editable<WorkloadListBuilder>, KubernetesRe
 
     @Override
     public String toString() {
-        return "ServiceCIDRList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "WorkloadList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

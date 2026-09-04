@@ -87,16 +87,11 @@ public class WorkloadPodGroupAllDisruptionMode implements Editable<WorkloadPodGr
         if (o == this) {
             return true;
         }
-        if (!(o instanceof PodGroupTemplateReference)) {
+        if (!(o instanceof WorkloadPodGroupAllDisruptionMode)) {
             return false;
         }
-        PodGroupTemplateReference other = (PodGroupTemplateReference) o;
+        WorkloadPodGroupAllDisruptionMode other = (WorkloadPodGroupAllDisruptionMode) o;
         if (!other.canEqual(this)) {
-            return false;
-        }
-        Object this$workload = this.getWorkload();
-        Object other$workload = other.getWorkload();
-        if (this$workload == null ? other$workload != null : !this$workload.equals(other$workload)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -108,15 +103,13 @@ public class WorkloadPodGroupAllDisruptionMode implements Editable<WorkloadPodGr
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof PodGroupTemplateReference;
+        return other instanceof WorkloadPodGroupAllDisruptionMode;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $workload = this.getWorkload();
-        result = result * prime + ($workload == null ? 43 : $workload.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -124,7 +117,7 @@ public class WorkloadPodGroupAllDisruptionMode implements Editable<WorkloadPodGr
 
     @Override
     public String toString() {
-        return "PodGroupTemplateReference(" + "workload=" + this.getWorkload() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "WorkloadPodGroupAllDisruptionMode(" + "additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

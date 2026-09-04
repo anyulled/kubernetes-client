@@ -190,6 +190,11 @@ public class TokenRequestSpec implements Editable<TokenRequestSpecBuilder>, Kube
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$attestations = this.getAttestations();
+        Object other$attestations = other.getAttestations();
+        if (this$attestations == null ? other$attestations != null : !this$attestations.equals(other$attestations)) {
+            return false;
+        }
         Object this$audiences = this.getAudiences();
         Object other$audiences = other.getAudiences();
         if (this$audiences == null ? other$audiences != null : !this$audiences.equals(other$audiences)) {
@@ -221,6 +226,8 @@ public class TokenRequestSpec implements Editable<TokenRequestSpecBuilder>, Kube
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $attestations = this.getAttestations();
+        result = result * prime + ($attestations == null ? 43 : $attestations.hashCode());
         Object $audiences = this.getAudiences();
         result = result * prime + ($audiences == null ? 43 : $audiences.hashCode());
         Object $boundObjectRef = this.getBoundObjectRef();
@@ -234,7 +241,7 @@ public class TokenRequestSpec implements Editable<TokenRequestSpecBuilder>, Kube
 
     @Override
     public String toString() {
-        return "TokenRequestSpec(" + "audiences=" + this.getAudiences() + ", boundObjectRef=" + this.getBoundObjectRef() + ", expirationSeconds=" + this.getExpirationSeconds() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "TokenRequestSpec(" + "attestations=" + this.getAttestations() + ", audiences=" + this.getAudiences() + ", boundObjectRef=" + this.getBoundObjectRef() + ", expirationSeconds=" + this.getExpirationSeconds() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -118,16 +118,16 @@ public class StorageVersionMigrationSpec implements Editable<StorageVersionMigra
         if (o == this) {
             return true;
         }
-        if (!(o instanceof IPAddressSpec)) {
+        if (!(o instanceof StorageVersionMigrationSpec)) {
             return false;
         }
-        IPAddressSpec other = (IPAddressSpec) o;
+        StorageVersionMigrationSpec other = (StorageVersionMigrationSpec) o;
         if (!other.canEqual(this)) {
             return false;
         }
-        Object this$parentRef = this.getParentRef();
-        Object other$parentRef = other.getParentRef();
-        if (this$parentRef == null ? other$parentRef != null : !this$parentRef.equals(other$parentRef)) {
+        Object this$resource = this.getResource();
+        Object other$resource = other.getResource();
+        if (this$resource == null ? other$resource != null : !this$resource.equals(other$resource)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -139,15 +139,15 @@ public class StorageVersionMigrationSpec implements Editable<StorageVersionMigra
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof IPAddressSpec;
+        return other instanceof StorageVersionMigrationSpec;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $parentRef = this.getParentRef();
-        result = result * prime + ($parentRef == null ? 43 : $parentRef.hashCode());
+        Object $resource = this.getResource();
+        result = result * prime + ($resource == null ? 43 : $resource.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -155,7 +155,7 @@ public class StorageVersionMigrationSpec implements Editable<StorageVersionMigra
 
     @Override
     public String toString() {
-        return "IPAddressSpec(" + "parentRef=" + this.getParentRef() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "StorageVersionMigrationSpec(" + "resource=" + this.getResource() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

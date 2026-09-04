@@ -278,6 +278,11 @@ public class PodGroupTemplate implements Editable<PodGroupTemplateBuilder>, Kube
         if (this$name == null ? other$name != null : !this$name.equals(other$name)) {
             return false;
         }
+        Object this$preemptionPolicy = this.getPreemptionPolicy();
+        Object other$preemptionPolicy = other.getPreemptionPolicy();
+        if (this$preemptionPolicy == null ? other$preemptionPolicy != null : !this$preemptionPolicy.equals(other$preemptionPolicy)) {
+            return false;
+        }
         Object this$priority = this.getPriority();
         Object other$priority = other.getPriority();
         if (this$priority == null ? other$priority != null : !this$priority.equals(other$priority)) {
@@ -323,6 +328,8 @@ public class PodGroupTemplate implements Editable<PodGroupTemplateBuilder>, Kube
         result = result * prime + ($disruptionMode == null ? 43 : $disruptionMode.hashCode());
         Object $name = this.getName();
         result = result * prime + ($name == null ? 43 : $name.hashCode());
+        Object $preemptionPolicy = this.getPreemptionPolicy();
+        result = result * prime + ($preemptionPolicy == null ? 43 : $preemptionPolicy.hashCode());
         Object $priority = this.getPriority();
         result = result * prime + ($priority == null ? 43 : $priority.hashCode());
         Object $priorityClassName = this.getPriorityClassName();
@@ -340,7 +347,7 @@ public class PodGroupTemplate implements Editable<PodGroupTemplateBuilder>, Kube
 
     @Override
     public String toString() {
-        return "PodGroupTemplate(" + "disruptionMode=" + this.getDisruptionMode() + ", name=" + this.getName() + ", priority=" + this.getPriority() + ", priorityClassName=" + this.getPriorityClassName() + ", resourceClaims=" + this.getResourceClaims() + ", schedulingConstraints=" + this.getSchedulingConstraints() + ", schedulingPolicy=" + this.getSchedulingPolicy() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodGroupTemplate(" + "disruptionMode=" + this.getDisruptionMode() + ", name=" + this.getName() + ", preemptionPolicy=" + this.getPreemptionPolicy() + ", priority=" + this.getPriority() + ", priorityClassName=" + this.getPriorityClassName() + ", resourceClaims=" + this.getResourceClaims() + ", schedulingConstraints=" + this.getSchedulingConstraints() + ", schedulingPolicy=" + this.getSchedulingPolicy() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -140,6 +140,11 @@ public class EmptyDirVolumeSource implements Editable<EmptyDirVolumeSourceBuilde
         if (this$medium == null ? other$medium != null : !this$medium.equals(other$medium)) {
             return false;
         }
+        Object this$mode = this.getMode();
+        Object other$mode = other.getMode();
+        if (this$mode == null ? other$mode != null : !this$mode.equals(other$mode)) {
+            return false;
+        }
         Object this$sizeLimit = this.getSizeLimit();
         Object other$sizeLimit = other.getSizeLimit();
         if (this$sizeLimit == null ? other$sizeLimit != null : !this$sizeLimit.equals(other$sizeLimit)) {
@@ -163,6 +168,8 @@ public class EmptyDirVolumeSource implements Editable<EmptyDirVolumeSourceBuilde
         int result = 1;
         Object $medium = this.getMedium();
         result = result * prime + ($medium == null ? 43 : $medium.hashCode());
+        Object $mode = this.getMode();
+        result = result * prime + ($mode == null ? 43 : $mode.hashCode());
         Object $sizeLimit = this.getSizeLimit();
         result = result * prime + ($sizeLimit == null ? 43 : $sizeLimit.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -172,7 +179,7 @@ public class EmptyDirVolumeSource implements Editable<EmptyDirVolumeSourceBuilde
 
     @Override
     public String toString() {
-        return "EmptyDirVolumeSource(" + "medium=" + this.getMedium() + ", sizeLimit=" + this.getSizeLimit() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "EmptyDirVolumeSource(" + "medium=" + this.getMedium() + ", mode=" + this.getMode() + ", sizeLimit=" + this.getSizeLimit() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

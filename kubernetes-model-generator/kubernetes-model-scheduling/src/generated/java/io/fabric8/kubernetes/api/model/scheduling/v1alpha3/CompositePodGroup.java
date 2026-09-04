@@ -202,10 +202,10 @@ public class CompositePodGroup implements Editable<CompositePodGroupBuilder>, Ha
         if (o == this) {
             return true;
         }
-        if (!(o instanceof IPAddress)) {
+        if (!(o instanceof CompositePodGroup)) {
             return false;
         }
-        IPAddress other = (IPAddress) o;
+        CompositePodGroup other = (CompositePodGroup) o;
         if (!other.canEqual(this)) {
             return false;
         }
@@ -229,6 +229,11 @@ public class CompositePodGroup implements Editable<CompositePodGroupBuilder>, Ha
         if (this$spec == null ? other$spec != null : !this$spec.equals(other$spec)) {
             return false;
         }
+        Object this$status = this.getStatus();
+        Object other$status = other.getStatus();
+        if (this$status == null ? other$status != null : !this$status.equals(other$status)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -238,7 +243,7 @@ public class CompositePodGroup implements Editable<CompositePodGroupBuilder>, Ha
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof IPAddress;
+        return other instanceof CompositePodGroup;
     }
 
     @Override
@@ -253,6 +258,8 @@ public class CompositePodGroup implements Editable<CompositePodGroupBuilder>, Ha
         result = result * prime + ($metadata == null ? 43 : $metadata.hashCode());
         Object $spec = this.getSpec();
         result = result * prime + ($spec == null ? 43 : $spec.hashCode());
+        Object $status = this.getStatus();
+        result = result * prime + ($status == null ? 43 : $status.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -260,7 +267,7 @@ public class CompositePodGroup implements Editable<CompositePodGroupBuilder>, Ha
 
     @Override
     public String toString() {
-        return "IPAddress(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "CompositePodGroup(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", status=" + this.getStatus() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

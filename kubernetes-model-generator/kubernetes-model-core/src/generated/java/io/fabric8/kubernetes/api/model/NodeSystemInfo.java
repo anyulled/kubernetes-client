@@ -360,6 +360,11 @@ public class NodeSystemInfo implements Editable<NodeSystemInfoBuilder>, Kubernet
         if (this$osImage == null ? other$osImage != null : !this$osImage.equals(other$osImage)) {
             return false;
         }
+        Object this$runningInUserNamespace = this.getRunningInUserNamespace();
+        Object other$runningInUserNamespace = other.getRunningInUserNamespace();
+        if (this$runningInUserNamespace == null ? other$runningInUserNamespace != null : !this$runningInUserNamespace.equals(other$runningInUserNamespace)) {
+            return false;
+        }
         Object this$swap = this.getSwap();
         Object other$swap = other.getSwap();
         if (this$swap == null ? other$swap != null : !this$swap.equals(other$swap)) {
@@ -404,6 +409,8 @@ public class NodeSystemInfo implements Editable<NodeSystemInfoBuilder>, Kubernet
         result = result * prime + ($operatingSystem == null ? 43 : $operatingSystem.hashCode());
         Object $osImage = this.getOsImage();
         result = result * prime + ($osImage == null ? 43 : $osImage.hashCode());
+        Object $runningInUserNamespace = this.getRunningInUserNamespace();
+        result = result * prime + ($runningInUserNamespace == null ? 43 : $runningInUserNamespace.hashCode());
         Object $swap = this.getSwap();
         result = result * prime + ($swap == null ? 43 : $swap.hashCode());
         Object $systemUUID = this.getSystemUUID();
@@ -415,7 +422,7 @@ public class NodeSystemInfo implements Editable<NodeSystemInfoBuilder>, Kubernet
 
     @Override
     public String toString() {
-        return "NodeSystemInfo(" + "architecture=" + this.getArchitecture() + ", bootID=" + this.getBootID() + ", containerRuntimeVersion=" + this.getContainerRuntimeVersion() + ", kernelVersion=" + this.getKernelVersion() + ", kubeProxyVersion=" + this.getKubeProxyVersion() + ", kubeletVersion=" + this.getKubeletVersion() + ", machineID=" + this.getMachineID() + ", operatingSystem=" + this.getOperatingSystem() + ", osImage=" + this.getOsImage() + ", swap=" + this.getSwap() + ", systemUUID=" + this.getSystemUUID() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "NodeSystemInfo(" + "architecture=" + this.getArchitecture() + ", bootID=" + this.getBootID() + ", containerRuntimeVersion=" + this.getContainerRuntimeVersion() + ", kernelVersion=" + this.getKernelVersion() + ", kubeProxyVersion=" + this.getKubeProxyVersion() + ", kubeletVersion=" + this.getKubeletVersion() + ", machineID=" + this.getMachineID() + ", operatingSystem=" + this.getOperatingSystem() + ", osImage=" + this.getOsImage() + ", runningInUserNamespace=" + this.getRunningInUserNamespace() + ", swap=" + this.getSwap() + ", systemUUID=" + this.getSystemUUID() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -334,6 +334,11 @@ public class DeviceRequest implements Editable<DeviceRequestBuilder>, Kubernetes
         if (this$count == null ? other$count != null : !this$count.equals(other$count)) {
             return false;
         }
+        Object this$derivedAttributes = this.getDerivedAttributes();
+        Object other$derivedAttributes = other.getDerivedAttributes();
+        if (this$derivedAttributes == null ? other$derivedAttributes != null : !this$derivedAttributes.equals(other$derivedAttributes)) {
+            return false;
+        }
         Object this$deviceClassName = this.getDeviceClassName();
         Object other$deviceClassName = other.getDeviceClassName();
         if (this$deviceClassName == null ? other$deviceClassName != null : !this$deviceClassName.equals(other$deviceClassName)) {
@@ -383,6 +388,8 @@ public class DeviceRequest implements Editable<DeviceRequestBuilder>, Kubernetes
         result = result * prime + ($capacity == null ? 43 : $capacity.hashCode());
         Object $count = this.getCount();
         result = result * prime + ($count == null ? 43 : $count.hashCode());
+        Object $derivedAttributes = this.getDerivedAttributes();
+        result = result * prime + ($derivedAttributes == null ? 43 : $derivedAttributes.hashCode());
         Object $deviceClassName = this.getDeviceClassName();
         result = result * prime + ($deviceClassName == null ? 43 : $deviceClassName.hashCode());
         Object $firstAvailable = this.getFirstAvailable();
@@ -400,7 +407,7 @@ public class DeviceRequest implements Editable<DeviceRequestBuilder>, Kubernetes
 
     @Override
     public String toString() {
-        return "DeviceRequest(" + "adminAccess=" + this.getAdminAccess() + ", allocationMode=" + this.getAllocationMode() + ", capacity=" + this.getCapacity() + ", count=" + this.getCount() + ", deviceClassName=" + this.getDeviceClassName() + ", firstAvailable=" + this.getFirstAvailable() + ", name=" + this.getName() + ", selectors=" + this.getSelectors() + ", tolerations=" + this.getTolerations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "DeviceRequest(" + "adminAccess=" + this.getAdminAccess() + ", allocationMode=" + this.getAllocationMode() + ", capacity=" + this.getCapacity() + ", count=" + this.getCount() + ", derivedAttributes=" + this.getDerivedAttributes() + ", deviceClassName=" + this.getDeviceClassName() + ", firstAvailable=" + this.getFirstAvailable() + ", name=" + this.getName() + ", selectors=" + this.getSelectors() + ", tolerations=" + this.getTolerations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

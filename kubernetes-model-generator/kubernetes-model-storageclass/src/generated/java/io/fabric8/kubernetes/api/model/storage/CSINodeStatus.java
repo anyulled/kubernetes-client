@@ -121,16 +121,16 @@ public class CSINodeStatus implements Editable<CSINodeStatusBuilder>, Kubernetes
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ServiceCIDRStatus)) {
+        if (!(o instanceof CSINodeStatus)) {
             return false;
         }
-        ServiceCIDRStatus other = (ServiceCIDRStatus) o;
+        CSINodeStatus other = (CSINodeStatus) o;
         if (!other.canEqual(this)) {
             return false;
         }
-        Object this$conditions = this.getConditions();
-        Object other$conditions = other.getConditions();
-        if (this$conditions == null ? other$conditions != null : !this$conditions.equals(other$conditions)) {
+        Object this$storageHealth = this.getStorageHealth();
+        Object other$storageHealth = other.getStorageHealth();
+        if (this$storageHealth == null ? other$storageHealth != null : !this$storageHealth.equals(other$storageHealth)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -142,15 +142,15 @@ public class CSINodeStatus implements Editable<CSINodeStatusBuilder>, Kubernetes
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof ServiceCIDRStatus;
+        return other instanceof CSINodeStatus;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $conditions = this.getConditions();
-        result = result * prime + ($conditions == null ? 43 : $conditions.hashCode());
+        Object $storageHealth = this.getStorageHealth();
+        result = result * prime + ($storageHealth == null ? 43 : $storageHealth.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -158,7 +158,7 @@ public class CSINodeStatus implements Editable<CSINodeStatusBuilder>, Kubernetes
 
     @Override
     public String toString() {
-        return "ServiceCIDRStatus(" + "conditions=" + this.getConditions() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "CSINodeStatus(" + "storageHealth=" + this.getStorageHealth() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

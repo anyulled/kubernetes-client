@@ -401,9 +401,9 @@ public class BasicDevice implements Editable<BasicDeviceBuilder>, KubernetesReso
         if (this$consumesCounters == null ? other$consumesCounters != null : !this$consumesCounters.equals(other$consumesCounters)) {
             return false;
         }
-        Object this$nodeAllocatableResourceMappings = this.getNodeAllocatableResourceMappings();
-        Object other$nodeAllocatableResourceMappings = other.getNodeAllocatableResourceMappings();
-        if (this$nodeAllocatableResourceMappings == null ? other$nodeAllocatableResourceMappings != null : !this$nodeAllocatableResourceMappings.equals(other$nodeAllocatableResourceMappings)) {
+        Object this$nodeAllocatableResources = this.getNodeAllocatableResources();
+        Object other$nodeAllocatableResources = other.getNodeAllocatableResources();
+        if (this$nodeAllocatableResources == null ? other$nodeAllocatableResources != null : !this$nodeAllocatableResources.equals(other$nodeAllocatableResources)) {
             return false;
         }
         Object this$nodeName = this.getNodeName();
@@ -453,8 +453,8 @@ public class BasicDevice implements Editable<BasicDeviceBuilder>, KubernetesReso
         result = result * prime + ($capacity == null ? 43 : $capacity.hashCode());
         Object $consumesCounters = this.getConsumesCounters();
         result = result * prime + ($consumesCounters == null ? 43 : $consumesCounters.hashCode());
-        Object $nodeAllocatableResourceMappings = this.getNodeAllocatableResourceMappings();
-        result = result * prime + ($nodeAllocatableResourceMappings == null ? 43 : $nodeAllocatableResourceMappings.hashCode());
+        Object $nodeAllocatableResources = this.getNodeAllocatableResources();
+        result = result * prime + ($nodeAllocatableResources == null ? 43 : $nodeAllocatableResources.hashCode());
         Object $nodeName = this.getNodeName();
         result = result * prime + ($nodeName == null ? 43 : $nodeName.hashCode());
         Object $nodeSelector = this.getNodeSelector();
@@ -468,7 +468,7 @@ public class BasicDevice implements Editable<BasicDeviceBuilder>, KubernetesReso
 
     @Override
     public String toString() {
-        return "BasicDevice(" + "allNodes=" + this.getAllNodes() + ", allowMultipleAllocations=" + this.getAllowMultipleAllocations() + ", attributes=" + this.getAttributes() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", bindsToNode=" + this.getBindsToNode() + ", capacity=" + this.getCapacity() + ", consumesCounters=" + this.getConsumesCounters() + ", nodeAllocatableResourceMappings=" + this.getNodeAllocatableResourceMappings() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", taints=" + this.getTaints() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "BasicDevice(" + "allNodes=" + this.getAllNodes() + ", allowMultipleAllocations=" + this.getAllowMultipleAllocations() + ", attributes=" + this.getAttributes() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", bindsToNode=" + this.getBindsToNode() + ", capacity=" + this.getCapacity() + ", consumesCounters=" + this.getConsumesCounters() + ", nodeAllocatableResources=" + this.getNodeAllocatableResources() + ", nodeName=" + this.getNodeName() + ", nodeSelector=" + this.getNodeSelector() + ", taints=" + this.getTaints() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

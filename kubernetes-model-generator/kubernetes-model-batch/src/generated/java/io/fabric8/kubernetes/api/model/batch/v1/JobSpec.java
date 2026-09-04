@@ -499,6 +499,11 @@ public class JobSpec implements Editable<JobSpecBuilder>, KubernetesResource
         if (this$podReplacementPolicy == null ? other$podReplacementPolicy != null : !this$podReplacementPolicy.equals(other$podReplacementPolicy)) {
             return false;
         }
+        Object this$scheduling = this.getScheduling();
+        Object other$scheduling = other.getScheduling();
+        if (this$scheduling == null ? other$scheduling != null : !this$scheduling.equals(other$scheduling)) {
+            return false;
+        }
         Object this$selector = this.getSelector();
         Object other$selector = other.getSelector();
         if (this$selector == null ? other$selector != null : !this$selector.equals(other$selector)) {
@@ -562,6 +567,8 @@ public class JobSpec implements Editable<JobSpecBuilder>, KubernetesResource
         result = result * prime + ($podFailurePolicy == null ? 43 : $podFailurePolicy.hashCode());
         Object $podReplacementPolicy = this.getPodReplacementPolicy();
         result = result * prime + ($podReplacementPolicy == null ? 43 : $podReplacementPolicy.hashCode());
+        Object $scheduling = this.getScheduling();
+        result = result * prime + ($scheduling == null ? 43 : $scheduling.hashCode());
         Object $selector = this.getSelector();
         result = result * prime + ($selector == null ? 43 : $selector.hashCode());
         Object $successPolicy = this.getSuccessPolicy();
@@ -579,7 +586,7 @@ public class JobSpec implements Editable<JobSpecBuilder>, KubernetesResource
 
     @Override
     public String toString() {
-        return "JobSpec(" + "activeDeadlineSeconds=" + this.getActiveDeadlineSeconds() + ", backoffLimit=" + this.getBackoffLimit() + ", backoffLimitPerIndex=" + this.getBackoffLimitPerIndex() + ", completionMode=" + this.getCompletionMode() + ", completions=" + this.getCompletions() + ", managedBy=" + this.getManagedBy() + ", manualSelector=" + this.getManualSelector() + ", maxFailedIndexes=" + this.getMaxFailedIndexes() + ", parallelism=" + this.getParallelism() + ", podFailurePolicy=" + this.getPodFailurePolicy() + ", podReplacementPolicy=" + this.getPodReplacementPolicy() + ", selector=" + this.getSelector() + ", successPolicy=" + this.getSuccessPolicy() + ", suspend=" + this.getSuspend() + ", template=" + this.getTemplate() + ", ttlSecondsAfterFinished=" + this.getTtlSecondsAfterFinished() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "JobSpec(" + "activeDeadlineSeconds=" + this.getActiveDeadlineSeconds() + ", backoffLimit=" + this.getBackoffLimit() + ", backoffLimitPerIndex=" + this.getBackoffLimitPerIndex() + ", completionMode=" + this.getCompletionMode() + ", completions=" + this.getCompletions() + ", managedBy=" + this.getManagedBy() + ", manualSelector=" + this.getManualSelector() + ", maxFailedIndexes=" + this.getMaxFailedIndexes() + ", parallelism=" + this.getParallelism() + ", podFailurePolicy=" + this.getPodFailurePolicy() + ", podReplacementPolicy=" + this.getPodReplacementPolicy() + ", scheduling=" + this.getScheduling() + ", selector=" + this.getSelector() + ", successPolicy=" + this.getSuccessPolicy() + ", suspend=" + this.getSuspend() + ", template=" + this.getTemplate() + ", ttlSecondsAfterFinished=" + this.getTtlSecondsAfterFinished() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

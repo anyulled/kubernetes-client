@@ -234,6 +234,11 @@ public class HorizontalPodAutoscalerCondition implements Editable<HorizontalPodA
         if (this$message == null ? other$message != null : !this$message.equals(other$message)) {
             return false;
         }
+        Object this$observedGeneration = this.getObservedGeneration();
+        Object other$observedGeneration = other.getObservedGeneration();
+        if (this$observedGeneration == null ? other$observedGeneration != null : !this$observedGeneration.equals(other$observedGeneration)) {
+            return false;
+        }
         Object this$reason = this.getReason();
         Object other$reason = other.getReason();
         if (this$reason == null ? other$reason != null : !this$reason.equals(other$reason)) {
@@ -269,6 +274,8 @@ public class HorizontalPodAutoscalerCondition implements Editable<HorizontalPodA
         result = result * prime + ($lastTransitionTime == null ? 43 : $lastTransitionTime.hashCode());
         Object $message = this.getMessage();
         result = result * prime + ($message == null ? 43 : $message.hashCode());
+        Object $observedGeneration = this.getObservedGeneration();
+        result = result * prime + ($observedGeneration == null ? 43 : $observedGeneration.hashCode());
         Object $reason = this.getReason();
         result = result * prime + ($reason == null ? 43 : $reason.hashCode());
         Object $status = this.getStatus();
@@ -282,7 +289,7 @@ public class HorizontalPodAutoscalerCondition implements Editable<HorizontalPodA
 
     @Override
     public String toString() {
-        return "HorizontalPodAutoscalerCondition(" + "lastTransitionTime=" + this.getLastTransitionTime() + ", message=" + this.getMessage() + ", reason=" + this.getReason() + ", status=" + this.getStatus() + ", type=" + this.getType() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "HorizontalPodAutoscalerCondition(" + "lastTransitionTime=" + this.getLastTransitionTime() + ", message=" + this.getMessage() + ", observedGeneration=" + this.getObservedGeneration() + ", reason=" + this.getReason() + ", status=" + this.getStatus() + ", type=" + this.getType() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

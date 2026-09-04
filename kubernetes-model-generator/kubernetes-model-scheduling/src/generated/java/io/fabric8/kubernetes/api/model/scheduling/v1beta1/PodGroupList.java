@@ -187,10 +187,10 @@ public class PodGroupList implements Editable<PodGroupListBuilder>, KubernetesRe
         if (o == this) {
             return true;
         }
-        if (!(o instanceof IPAddressList)) {
+        if (!(o instanceof PodGroupList)) {
             return false;
         }
-        IPAddressList other = (IPAddressList) o;
+        PodGroupList other = (PodGroupList) o;
         if (!other.canEqual(this)) {
             return false;
         }
@@ -223,7 +223,7 @@ public class PodGroupList implements Editable<PodGroupListBuilder>, KubernetesRe
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof IPAddressList;
+        return other instanceof PodGroupList;
     }
 
     @Override
@@ -245,7 +245,7 @@ public class PodGroupList implements Editable<PodGroupListBuilder>, KubernetesRe
 
     @Override
     public String toString() {
-        return "IPAddressList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodGroupList(" + "apiVersion=" + this.getApiVersion() + ", items=" + this.getItems() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

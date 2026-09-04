@@ -293,9 +293,14 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
         if (this$disruptionMode == null ? other$disruptionMode != null : !this$disruptionMode.equals(other$disruptionMode)) {
             return false;
         }
-        Object this$podGroupTemplateRef = this.getPodGroupTemplateRef();
-        Object other$podGroupTemplateRef = other.getPodGroupTemplateRef();
-        if (this$podGroupTemplateRef == null ? other$podGroupTemplateRef != null : !this$podGroupTemplateRef.equals(other$podGroupTemplateRef)) {
+        Object this$parentCompositePodGroupName = this.getParentCompositePodGroupName();
+        Object other$parentCompositePodGroupName = other.getParentCompositePodGroupName();
+        if (this$parentCompositePodGroupName == null ? other$parentCompositePodGroupName != null : !this$parentCompositePodGroupName.equals(other$parentCompositePodGroupName)) {
+            return false;
+        }
+        Object this$preemptionPolicy = this.getPreemptionPolicy();
+        Object other$preemptionPolicy = other.getPreemptionPolicy();
+        if (this$preemptionPolicy == null ? other$preemptionPolicy != null : !this$preemptionPolicy.equals(other$preemptionPolicy)) {
             return false;
         }
         Object this$priority = this.getPriority();
@@ -323,6 +328,11 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
         if (this$schedulingPolicy == null ? other$schedulingPolicy != null : !this$schedulingPolicy.equals(other$schedulingPolicy)) {
             return false;
         }
+        Object this$workloadRef = this.getWorkloadRef();
+        Object other$workloadRef = other.getWorkloadRef();
+        if (this$workloadRef == null ? other$workloadRef != null : !this$workloadRef.equals(other$workloadRef)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -341,8 +351,10 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
         int result = 1;
         Object $disruptionMode = this.getDisruptionMode();
         result = result * prime + ($disruptionMode == null ? 43 : $disruptionMode.hashCode());
-        Object $podGroupTemplateRef = this.getPodGroupTemplateRef();
-        result = result * prime + ($podGroupTemplateRef == null ? 43 : $podGroupTemplateRef.hashCode());
+        Object $parentCompositePodGroupName = this.getParentCompositePodGroupName();
+        result = result * prime + ($parentCompositePodGroupName == null ? 43 : $parentCompositePodGroupName.hashCode());
+        Object $preemptionPolicy = this.getPreemptionPolicy();
+        result = result * prime + ($preemptionPolicy == null ? 43 : $preemptionPolicy.hashCode());
         Object $priority = this.getPriority();
         result = result * prime + ($priority == null ? 43 : $priority.hashCode());
         Object $priorityClassName = this.getPriorityClassName();
@@ -353,6 +365,8 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
         result = result * prime + ($schedulingConstraints == null ? 43 : $schedulingConstraints.hashCode());
         Object $schedulingPolicy = this.getSchedulingPolicy();
         result = result * prime + ($schedulingPolicy == null ? 43 : $schedulingPolicy.hashCode());
+        Object $workloadRef = this.getWorkloadRef();
+        result = result * prime + ($workloadRef == null ? 43 : $workloadRef.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -360,7 +374,7 @@ public class PodGroupSpec implements Editable<PodGroupSpecBuilder>, KubernetesRe
 
     @Override
     public String toString() {
-        return "PodGroupSpec(" + "disruptionMode=" + this.getDisruptionMode() + ", podGroupTemplateRef=" + this.getPodGroupTemplateRef() + ", priority=" + this.getPriority() + ", priorityClassName=" + this.getPriorityClassName() + ", resourceClaims=" + this.getResourceClaims() + ", schedulingConstraints=" + this.getSchedulingConstraints() + ", schedulingPolicy=" + this.getSchedulingPolicy() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodGroupSpec(" + "disruptionMode=" + this.getDisruptionMode() + ", parentCompositePodGroupName=" + this.getParentCompositePodGroupName() + ", preemptionPolicy=" + this.getPreemptionPolicy() + ", priority=" + this.getPriority() + ", priorityClassName=" + this.getPriorityClassName() + ", resourceClaims=" + this.getResourceClaims() + ", schedulingConstraints=" + this.getSchedulingConstraints() + ", schedulingPolicy=" + this.getSchedulingPolicy() + ", workloadRef=" + this.getWorkloadRef() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

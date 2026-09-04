@@ -170,6 +170,11 @@ public class WorkloadSpec implements Editable<WorkloadSpecBuilder>, KubernetesRe
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$compositePodGroupTemplates = this.getCompositePodGroupTemplates();
+        Object other$compositePodGroupTemplates = other.getCompositePodGroupTemplates();
+        if (this$compositePodGroupTemplates == null ? other$compositePodGroupTemplates != null : !this$compositePodGroupTemplates.equals(other$compositePodGroupTemplates)) {
+            return false;
+        }
         Object this$controllerRef = this.getControllerRef();
         Object other$controllerRef = other.getControllerRef();
         if (this$controllerRef == null ? other$controllerRef != null : !this$controllerRef.equals(other$controllerRef)) {
@@ -196,6 +201,8 @@ public class WorkloadSpec implements Editable<WorkloadSpecBuilder>, KubernetesRe
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $compositePodGroupTemplates = this.getCompositePodGroupTemplates();
+        result = result * prime + ($compositePodGroupTemplates == null ? 43 : $compositePodGroupTemplates.hashCode());
         Object $controllerRef = this.getControllerRef();
         result = result * prime + ($controllerRef == null ? 43 : $controllerRef.hashCode());
         Object $podGroupTemplates = this.getPodGroupTemplates();
@@ -207,7 +214,7 @@ public class WorkloadSpec implements Editable<WorkloadSpecBuilder>, KubernetesRe
 
     @Override
     public String toString() {
-        return "WorkloadSpec(" + "controllerRef=" + this.getControllerRef() + ", podGroupTemplates=" + this.getPodGroupTemplates() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "WorkloadSpec(" + "compositePodGroupTemplates=" + this.getCompositePodGroupTemplates() + ", controllerRef=" + this.getControllerRef() + ", podGroupTemplates=" + this.getPodGroupTemplates() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -170,6 +170,11 @@ public class KeyToPath implements Editable<KeyToPathBuilder>, KubernetesResource
         if (this$path == null ? other$path != null : !this$path.equals(other$path)) {
             return false;
         }
+        Object this$user = this.getUser();
+        Object other$user = other.getUser();
+        if (this$user == null ? other$user != null : !this$user.equals(other$user)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -192,6 +197,8 @@ public class KeyToPath implements Editable<KeyToPathBuilder>, KubernetesResource
         result = result * prime + ($mode == null ? 43 : $mode.hashCode());
         Object $path = this.getPath();
         result = result * prime + ($path == null ? 43 : $path.hashCode());
+        Object $user = this.getUser();
+        result = result * prime + ($user == null ? 43 : $user.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -199,7 +206,7 @@ public class KeyToPath implements Editable<KeyToPathBuilder>, KubernetesResource
 
     @Override
     public String toString() {
-        return "KeyToPath(" + "key=" + this.getKey() + ", mode=" + this.getMode() + ", path=" + this.getPath() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "KeyToPath(" + "key=" + this.getKey() + ", mode=" + this.getMode() + ", path=" + this.getPath() + ", user=" + this.getUser() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

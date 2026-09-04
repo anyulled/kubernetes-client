@@ -137,16 +137,16 @@ public class WorkloadReference implements Editable<WorkloadReferenceBuilder>, Ku
         if (o == this) {
             return true;
         }
-        if (!(o instanceof WorkloadPodGroupTemplateReference)) {
+        if (!(o instanceof WorkloadReference)) {
             return false;
         }
-        WorkloadPodGroupTemplateReference other = (WorkloadPodGroupTemplateReference) o;
+        WorkloadReference other = (WorkloadReference) o;
         if (!other.canEqual(this)) {
             return false;
         }
-        Object this$podGroupTemplateName = this.getPodGroupTemplateName();
-        Object other$podGroupTemplateName = other.getPodGroupTemplateName();
-        if (this$podGroupTemplateName == null ? other$podGroupTemplateName != null : !this$podGroupTemplateName.equals(other$podGroupTemplateName)) {
+        Object this$templateName = this.getTemplateName();
+        Object other$templateName = other.getTemplateName();
+        if (this$templateName == null ? other$templateName != null : !this$templateName.equals(other$templateName)) {
             return false;
         }
         Object this$workloadName = this.getWorkloadName();
@@ -163,15 +163,15 @@ public class WorkloadReference implements Editable<WorkloadReferenceBuilder>, Ku
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof WorkloadPodGroupTemplateReference;
+        return other instanceof WorkloadReference;
     }
 
     @Override
     public int hashCode() {
         final int prime = 59;
         int result = 1;
-        Object $podGroupTemplateName = this.getPodGroupTemplateName();
-        result = result * prime + ($podGroupTemplateName == null ? 43 : $podGroupTemplateName.hashCode());
+        Object $templateName = this.getTemplateName();
+        result = result * prime + ($templateName == null ? 43 : $templateName.hashCode());
         Object $workloadName = this.getWorkloadName();
         result = result * prime + ($workloadName == null ? 43 : $workloadName.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -181,7 +181,7 @@ public class WorkloadReference implements Editable<WorkloadReferenceBuilder>, Ku
 
     @Override
     public String toString() {
-        return "WorkloadPodGroupTemplateReference(" + "podGroupTemplateName=" + this.getPodGroupTemplateName() + ", workloadName=" + this.getWorkloadName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "WorkloadReference(" + "templateName=" + this.getTemplateName() + ", workloadName=" + this.getWorkloadName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

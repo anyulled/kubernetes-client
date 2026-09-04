@@ -382,6 +382,11 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
         if (this$shareID == null ? other$shareID != null : !this$shareID.equals(other$shareID)) {
             return false;
         }
+        Object this$skipNodeOperations = this.getSkipNodeOperations();
+        Object other$skipNodeOperations = other.getSkipNodeOperations();
+        if (this$skipNodeOperations == null ? other$skipNodeOperations != null : !this$skipNodeOperations.equals(other$skipNodeOperations)) {
+            return false;
+        }
         Object this$tolerations = this.getTolerations();
         Object other$tolerations = other.getTolerations();
         if (this$tolerations == null ? other$tolerations != null : !this$tolerations.equals(other$tolerations)) {
@@ -421,6 +426,8 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
         result = result * prime + ($request == null ? 43 : $request.hashCode());
         Object $shareID = this.getShareID();
         result = result * prime + ($shareID == null ? 43 : $shareID.hashCode());
+        Object $skipNodeOperations = this.getSkipNodeOperations();
+        result = result * prime + ($skipNodeOperations == null ? 43 : $skipNodeOperations.hashCode());
         Object $tolerations = this.getTolerations();
         result = result * prime + ($tolerations == null ? 43 : $tolerations.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -430,7 +437,7 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
 
     @Override
     public String toString() {
-        return "DeviceRequestAllocationResult(" + "adminAccess=" + this.getAdminAccess() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", consumedCapacity=" + this.getConsumedCapacity() + ", device=" + this.getDevice() + ", driver=" + this.getDriver() + ", pool=" + this.getPool() + ", request=" + this.getRequest() + ", shareID=" + this.getShareID() + ", tolerations=" + this.getTolerations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "DeviceRequestAllocationResult(" + "adminAccess=" + this.getAdminAccess() + ", bindingConditions=" + this.getBindingConditions() + ", bindingFailureConditions=" + this.getBindingFailureConditions() + ", consumedCapacity=" + this.getConsumedCapacity() + ", device=" + this.getDevice() + ", driver=" + this.getDriver() + ", pool=" + this.getPool() + ", request=" + this.getRequest() + ", shareID=" + this.getShareID() + ", skipNodeOperations=" + this.getSkipNodeOperations() + ", tolerations=" + this.getTolerations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

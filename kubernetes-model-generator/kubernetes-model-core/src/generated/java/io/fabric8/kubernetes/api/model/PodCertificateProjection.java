@@ -267,6 +267,11 @@ public class PodCertificateProjection implements Editable<PodCertificateProjecti
         if (this$signerName == null ? other$signerName != null : !this$signerName.equals(other$signerName)) {
             return false;
         }
+        Object this$user = this.getUser();
+        Object other$user = other.getUser();
+        if (this$user == null ? other$user != null : !this$user.equals(other$user)) {
+            return false;
+        }
         Object this$userAnnotations = this.getUserAnnotations();
         Object other$userAnnotations = other.getUserAnnotations();
         if (this$userAnnotations == null ? other$userAnnotations != null : !this$userAnnotations.equals(other$userAnnotations)) {
@@ -300,6 +305,8 @@ public class PodCertificateProjection implements Editable<PodCertificateProjecti
         result = result * prime + ($maxExpirationSeconds == null ? 43 : $maxExpirationSeconds.hashCode());
         Object $signerName = this.getSignerName();
         result = result * prime + ($signerName == null ? 43 : $signerName.hashCode());
+        Object $user = this.getUser();
+        result = result * prime + ($user == null ? 43 : $user.hashCode());
         Object $userAnnotations = this.getUserAnnotations();
         result = result * prime + ($userAnnotations == null ? 43 : $userAnnotations.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -309,7 +316,7 @@ public class PodCertificateProjection implements Editable<PodCertificateProjecti
 
     @Override
     public String toString() {
-        return "PodCertificateProjection(" + "certificateChainPath=" + this.getCertificateChainPath() + ", credentialBundlePath=" + this.getCredentialBundlePath() + ", keyPath=" + this.getKeyPath() + ", keyType=" + this.getKeyType() + ", maxExpirationSeconds=" + this.getMaxExpirationSeconds() + ", signerName=" + this.getSignerName() + ", userAnnotations=" + this.getUserAnnotations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodCertificateProjection(" + "certificateChainPath=" + this.getCertificateChainPath() + ", credentialBundlePath=" + this.getCredentialBundlePath() + ", keyPath=" + this.getKeyPath() + ", keyType=" + this.getKeyType() + ", maxExpirationSeconds=" + this.getMaxExpirationSeconds() + ", signerName=" + this.getSignerName() + ", user=" + this.getUser() + ", userAnnotations=" + this.getUserAnnotations() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -170,6 +170,11 @@ public class DeviceCounterConsumption implements Editable<DeviceCounterConsumpti
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$compatibilityGroups = this.getCompatibilityGroups();
+        Object other$compatibilityGroups = other.getCompatibilityGroups();
+        if (this$compatibilityGroups == null ? other$compatibilityGroups != null : !this$compatibilityGroups.equals(other$compatibilityGroups)) {
+            return false;
+        }
         Object this$counterSet = this.getCounterSet();
         Object other$counterSet = other.getCounterSet();
         if (this$counterSet == null ? other$counterSet != null : !this$counterSet.equals(other$counterSet)) {
@@ -196,6 +201,8 @@ public class DeviceCounterConsumption implements Editable<DeviceCounterConsumpti
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $compatibilityGroups = this.getCompatibilityGroups();
+        result = result * prime + ($compatibilityGroups == null ? 43 : $compatibilityGroups.hashCode());
         Object $counterSet = this.getCounterSet();
         result = result * prime + ($counterSet == null ? 43 : $counterSet.hashCode());
         Object $counters = this.getCounters();
@@ -207,7 +214,7 @@ public class DeviceCounterConsumption implements Editable<DeviceCounterConsumpti
 
     @Override
     public String toString() {
-        return "DeviceCounterConsumption(" + "counterSet=" + this.getCounterSet() + ", counters=" + this.getCounters() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "DeviceCounterConsumption(" + "compatibilityGroups=" + this.getCompatibilityGroups() + ", counterSet=" + this.getCounterSet() + ", counters=" + this.getCounters() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

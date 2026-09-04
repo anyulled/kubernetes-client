@@ -219,6 +219,11 @@ public class HTTPGetAction implements Editable<HTTPGetActionBuilder>, Kubernetes
         if (this$port == null ? other$port != null : !this$port.equals(other$port)) {
             return false;
         }
+        Object this$protocol = this.getProtocol();
+        Object other$protocol = other.getProtocol();
+        if (this$protocol == null ? other$protocol != null : !this$protocol.equals(other$protocol)) {
+            return false;
+        }
         Object this$scheme = this.getScheme();
         Object other$scheme = other.getScheme();
         if (this$scheme == null ? other$scheme != null : !this$scheme.equals(other$scheme)) {
@@ -248,6 +253,8 @@ public class HTTPGetAction implements Editable<HTTPGetActionBuilder>, Kubernetes
         result = result * prime + ($path == null ? 43 : $path.hashCode());
         Object $port = this.getPort();
         result = result * prime + ($port == null ? 43 : $port.hashCode());
+        Object $protocol = this.getProtocol();
+        result = result * prime + ($protocol == null ? 43 : $protocol.hashCode());
         Object $scheme = this.getScheme();
         result = result * prime + ($scheme == null ? 43 : $scheme.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
@@ -257,7 +264,7 @@ public class HTTPGetAction implements Editable<HTTPGetActionBuilder>, Kubernetes
 
     @Override
     public String toString() {
-        return "HTTPGetAction(" + "host=" + this.getHost() + ", httpHeaders=" + this.getHttpHeaders() + ", path=" + this.getPath() + ", port=" + this.getPort() + ", scheme=" + this.getScheme() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "HTTPGetAction(" + "host=" + this.getHost() + ", httpHeaders=" + this.getHttpHeaders() + ", path=" + this.getPath() + ", port=" + this.getPort() + ", protocol=" + this.getProtocol() + ", scheme=" + this.getScheme() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

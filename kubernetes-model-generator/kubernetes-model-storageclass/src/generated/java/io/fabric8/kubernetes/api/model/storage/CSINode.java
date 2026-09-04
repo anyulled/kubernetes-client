@@ -228,6 +228,11 @@ public class CSINode implements Editable<CSINodeBuilder>, HasMetadata
         if (this$spec == null ? other$spec != null : !this$spec.equals(other$spec)) {
             return false;
         }
+        Object this$status = this.getStatus();
+        Object other$status = other.getStatus();
+        if (this$status == null ? other$status != null : !this$status.equals(other$status)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -252,6 +257,8 @@ public class CSINode implements Editable<CSINodeBuilder>, HasMetadata
         result = result * prime + ($metadata == null ? 43 : $metadata.hashCode());
         Object $spec = this.getSpec();
         result = result * prime + ($spec == null ? 43 : $spec.hashCode());
+        Object $status = this.getStatus();
+        result = result * prime + ($status == null ? 43 : $status.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -259,7 +266,7 @@ public class CSINode implements Editable<CSINodeBuilder>, HasMetadata
 
     @Override
     public String toString() {
-        return "CSINode(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "CSINode(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", status=" + this.getStatus() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

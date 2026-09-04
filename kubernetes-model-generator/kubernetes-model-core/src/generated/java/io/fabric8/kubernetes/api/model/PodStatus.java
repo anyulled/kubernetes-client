@@ -642,6 +642,11 @@ public class PodStatus implements Editable<PodStatusBuilder>, KubernetesResource
         if (this$startTime == null ? other$startTime != null : !this$startTime.equals(other$startTime)) {
             return false;
         }
+        Object this$volumeHealth = this.getVolumeHealth();
+        Object other$volumeHealth = other.getVolumeHealth();
+        if (this$volumeHealth == null ? other$volumeHealth != null : !this$volumeHealth.equals(other$volumeHealth)) {
+            return false;
+        }
         Object this$additionalProperties = this.getAdditionalProperties();
         Object other$additionalProperties = other.getAdditionalProperties();
         if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
@@ -700,6 +705,8 @@ public class PodStatus implements Editable<PodStatusBuilder>, KubernetesResource
         result = result * prime + ($resources == null ? 43 : $resources.hashCode());
         Object $startTime = this.getStartTime();
         result = result * prime + ($startTime == null ? 43 : $startTime.hashCode());
+        Object $volumeHealth = this.getVolumeHealth();
+        result = result * prime + ($volumeHealth == null ? 43 : $volumeHealth.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -707,7 +714,7 @@ public class PodStatus implements Editable<PodStatusBuilder>, KubernetesResource
 
     @Override
     public String toString() {
-        return "PodStatus(" + "allocatedResources=" + this.getAllocatedResources() + ", conditions=" + this.getConditions() + ", containerStatuses=" + this.getContainerStatuses() + ", ephemeralContainerStatuses=" + this.getEphemeralContainerStatuses() + ", extendedResourceClaimStatus=" + this.getExtendedResourceClaimStatus() + ", hostIP=" + this.getHostIP() + ", hostIPs=" + this.getHostIPs() + ", initContainerStatuses=" + this.getInitContainerStatuses() + ", message=" + this.getMessage() + ", nodeAllocatableResourceClaimStatuses=" + this.getNodeAllocatableResourceClaimStatuses() + ", nominatedNodeName=" + this.getNominatedNodeName() + ", observedGeneration=" + this.getObservedGeneration() + ", phase=" + this.getPhase() + ", podIP=" + this.getPodIP() + ", podIPs=" + this.getPodIPs() + ", qosClass=" + this.getQosClass() + ", reason=" + this.getReason() + ", resize=" + this.getResize() + ", resourceClaimStatuses=" + this.getResourceClaimStatuses() + ", resources=" + this.getResources() + ", startTime=" + this.getStartTime() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PodStatus(" + "allocatedResources=" + this.getAllocatedResources() + ", conditions=" + this.getConditions() + ", containerStatuses=" + this.getContainerStatuses() + ", ephemeralContainerStatuses=" + this.getEphemeralContainerStatuses() + ", extendedResourceClaimStatus=" + this.getExtendedResourceClaimStatus() + ", hostIP=" + this.getHostIP() + ", hostIPs=" + this.getHostIPs() + ", initContainerStatuses=" + this.getInitContainerStatuses() + ", message=" + this.getMessage() + ", nodeAllocatableResourceClaimStatuses=" + this.getNodeAllocatableResourceClaimStatuses() + ", nominatedNodeName=" + this.getNominatedNodeName() + ", observedGeneration=" + this.getObservedGeneration() + ", phase=" + this.getPhase() + ", podIP=" + this.getPodIP() + ", podIPs=" + this.getPodIPs() + ", qosClass=" + this.getQosClass() + ", reason=" + this.getReason() + ", resize=" + this.getResize() + ", resourceClaimStatuses=" + this.getResourceClaimStatuses() + ", resources=" + this.getResources() + ", startTime=" + this.getStartTime() + ", volumeHealth=" + this.getVolumeHealth() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -297,6 +297,11 @@ public class PersistentVolumeClaimStatus implements Editable<PersistentVolumeCla
         if (this$currentVolumeAttributesClassName == null ? other$currentVolumeAttributesClassName != null : !this$currentVolumeAttributesClassName.equals(other$currentVolumeAttributesClassName)) {
             return false;
         }
+        Object this$healthStatus = this.getHealthStatus();
+        Object other$healthStatus = other.getHealthStatus();
+        if (this$healthStatus == null ? other$healthStatus != null : !this$healthStatus.equals(other$healthStatus)) {
+            return false;
+        }
         Object this$modifyVolumeStatus = this.getModifyVolumeStatus();
         Object other$modifyVolumeStatus = other.getModifyVolumeStatus();
         if (this$modifyVolumeStatus == null ? other$modifyVolumeStatus != null : !this$modifyVolumeStatus.equals(other$modifyVolumeStatus)) {
@@ -335,6 +340,8 @@ public class PersistentVolumeClaimStatus implements Editable<PersistentVolumeCla
         result = result * prime + ($conditions == null ? 43 : $conditions.hashCode());
         Object $currentVolumeAttributesClassName = this.getCurrentVolumeAttributesClassName();
         result = result * prime + ($currentVolumeAttributesClassName == null ? 43 : $currentVolumeAttributesClassName.hashCode());
+        Object $healthStatus = this.getHealthStatus();
+        result = result * prime + ($healthStatus == null ? 43 : $healthStatus.hashCode());
         Object $modifyVolumeStatus = this.getModifyVolumeStatus();
         result = result * prime + ($modifyVolumeStatus == null ? 43 : $modifyVolumeStatus.hashCode());
         Object $phase = this.getPhase();
@@ -346,7 +353,7 @@ public class PersistentVolumeClaimStatus implements Editable<PersistentVolumeCla
 
     @Override
     public String toString() {
-        return "PersistentVolumeClaimStatus(" + "accessModes=" + this.getAccessModes() + ", allocatedResourceStatuses=" + this.getAllocatedResourceStatuses() + ", allocatedResources=" + this.getAllocatedResources() + ", capacity=" + this.getCapacity() + ", conditions=" + this.getConditions() + ", currentVolumeAttributesClassName=" + this.getCurrentVolumeAttributesClassName() + ", modifyVolumeStatus=" + this.getModifyVolumeStatus() + ", phase=" + this.getPhase() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "PersistentVolumeClaimStatus(" + "accessModes=" + this.getAccessModes() + ", allocatedResourceStatuses=" + this.getAllocatedResourceStatuses() + ", allocatedResources=" + this.getAllocatedResources() + ", capacity=" + this.getCapacity() + ", conditions=" + this.getConditions() + ", currentVolumeAttributesClassName=" + this.getCurrentVolumeAttributesClassName() + ", healthStatus=" + this.getHealthStatus() + ", modifyVolumeStatus=" + this.getModifyVolumeStatus() + ", phase=" + this.getPhase() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

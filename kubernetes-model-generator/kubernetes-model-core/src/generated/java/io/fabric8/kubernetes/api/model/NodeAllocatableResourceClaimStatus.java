@@ -168,14 +168,19 @@ public class NodeAllocatableResourceClaimStatus implements Editable<NodeAllocata
         if (this$containers == null ? other$containers != null : !this$containers.equals(other$containers)) {
             return false;
         }
+        Object this$mapping = this.getMapping();
+        Object other$mapping = other.getMapping();
+        if (this$mapping == null ? other$mapping != null : !this$mapping.equals(other$mapping)) {
+            return false;
+        }
+        Object this$overhead = this.getOverhead();
+        Object other$overhead = other.getOverhead();
+        if (this$overhead == null ? other$overhead != null : !this$overhead.equals(other$overhead)) {
+            return false;
+        }
         Object this$resourceClaimName = this.getResourceClaimName();
         Object other$resourceClaimName = other.getResourceClaimName();
         if (this$resourceClaimName == null ? other$resourceClaimName != null : !this$resourceClaimName.equals(other$resourceClaimName)) {
-            return false;
-        }
-        Object this$resources = this.getResources();
-        Object other$resources = other.getResources();
-        if (this$resources == null ? other$resources != null : !this$resources.equals(other$resources)) {
             return false;
         }
         Object this$additionalProperties = this.getAdditionalProperties();
@@ -196,10 +201,12 @@ public class NodeAllocatableResourceClaimStatus implements Editable<NodeAllocata
         int result = 1;
         Object $containers = this.getContainers();
         result = result * prime + ($containers == null ? 43 : $containers.hashCode());
+        Object $mapping = this.getMapping();
+        result = result * prime + ($mapping == null ? 43 : $mapping.hashCode());
+        Object $overhead = this.getOverhead();
+        result = result * prime + ($overhead == null ? 43 : $overhead.hashCode());
         Object $resourceClaimName = this.getResourceClaimName();
         result = result * prime + ($resourceClaimName == null ? 43 : $resourceClaimName.hashCode());
-        Object $resources = this.getResources();
-        result = result * prime + ($resources == null ? 43 : $resources.hashCode());
         Object $additionalProperties = this.getAdditionalProperties();
         result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
         return result;
@@ -207,7 +214,7 @@ public class NodeAllocatableResourceClaimStatus implements Editable<NodeAllocata
 
     @Override
     public String toString() {
-        return "NodeAllocatableResourceClaimStatus(" + "containers=" + this.getContainers() + ", resourceClaimName=" + this.getResourceClaimName() + ", resources=" + this.getResources() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "NodeAllocatableResourceClaimStatus(" + "containers=" + this.getContainers() + ", mapping=" + this.getMapping() + ", overhead=" + this.getOverhead() + ", resourceClaimName=" + this.getResourceClaimName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

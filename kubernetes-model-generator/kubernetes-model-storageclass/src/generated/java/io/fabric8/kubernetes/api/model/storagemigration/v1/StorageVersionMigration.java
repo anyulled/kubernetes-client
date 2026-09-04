@@ -201,10 +201,10 @@ public class StorageVersionMigration implements Editable<StorageVersionMigration
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ServiceCIDR)) {
+        if (!(o instanceof StorageVersionMigration)) {
             return false;
         }
-        ServiceCIDR other = (ServiceCIDR) o;
+        StorageVersionMigration other = (StorageVersionMigration) o;
         if (!other.canEqual(this)) {
             return false;
         }
@@ -242,7 +242,7 @@ public class StorageVersionMigration implements Editable<StorageVersionMigration
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof ServiceCIDR;
+        return other instanceof StorageVersionMigration;
     }
 
     @Override
@@ -266,7 +266,7 @@ public class StorageVersionMigration implements Editable<StorageVersionMigration
 
     @Override
     public String toString() {
-        return "ServiceCIDR(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", status=" + this.getStatus() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "StorageVersionMigration(" + "apiVersion=" + this.getApiVersion() + ", kind=" + this.getKind() + ", metadata=" + this.getMetadata() + ", spec=" + this.getSpec() + ", status=" + this.getStatus() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

@@ -184,6 +184,11 @@ public class ResourcePoolStatusRequestSpec implements Editable<ResourcePoolStatu
         if (!other.canEqual(this)) {
             return false;
         }
+        Object this$defaultPartitionTypeAttribute = this.getDefaultPartitionTypeAttribute();
+        Object other$defaultPartitionTypeAttribute = other.getDefaultPartitionTypeAttribute();
+        if (this$defaultPartitionTypeAttribute == null ? other$defaultPartitionTypeAttribute != null : !this$defaultPartitionTypeAttribute.equals(other$defaultPartitionTypeAttribute)) {
+            return false;
+        }
         Object this$driver = this.getDriver();
         Object other$driver = other.getDriver();
         if (this$driver == null ? other$driver != null : !this$driver.equals(other$driver)) {
@@ -215,6 +220,8 @@ public class ResourcePoolStatusRequestSpec implements Editable<ResourcePoolStatu
     public int hashCode() {
         final int prime = 59;
         int result = 1;
+        Object $defaultPartitionTypeAttribute = this.getDefaultPartitionTypeAttribute();
+        result = result * prime + ($defaultPartitionTypeAttribute == null ? 43 : $defaultPartitionTypeAttribute.hashCode());
         Object $driver = this.getDriver();
         result = result * prime + ($driver == null ? 43 : $driver.hashCode());
         Object $limit = this.getLimit();
@@ -228,7 +235,7 @@ public class ResourcePoolStatusRequestSpec implements Editable<ResourcePoolStatu
 
     @Override
     public String toString() {
-        return "ResourcePoolStatusRequestSpec(" + "driver=" + this.getDriver() + ", limit=" + this.getLimit() + ", poolName=" + this.getPoolName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "ResourcePoolStatusRequestSpec(" + "defaultPartitionTypeAttribute=" + this.getDefaultPartitionTypeAttribute() + ", driver=" + this.getDriver() + ", limit=" + this.getLimit() + ", poolName=" + this.getPoolName() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }

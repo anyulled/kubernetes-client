@@ -184,6 +184,11 @@ public class ConfigMapVolumeSource implements Editable<ConfigMapVolumeSourceBuil
         if (this$defaultMode == null ? other$defaultMode != null : !this$defaultMode.equals(other$defaultMode)) {
             return false;
         }
+        Object this$defaultUser = this.getDefaultUser();
+        Object other$defaultUser = other.getDefaultUser();
+        if (this$defaultUser == null ? other$defaultUser != null : !this$defaultUser.equals(other$defaultUser)) {
+            return false;
+        }
         Object this$items = this.getItems();
         Object other$items = other.getItems();
         if (this$items == null ? other$items != null : !this$items.equals(other$items)) {
@@ -217,6 +222,8 @@ public class ConfigMapVolumeSource implements Editable<ConfigMapVolumeSourceBuil
         int result = 1;
         Object $defaultMode = this.getDefaultMode();
         result = result * prime + ($defaultMode == null ? 43 : $defaultMode.hashCode());
+        Object $defaultUser = this.getDefaultUser();
+        result = result * prime + ($defaultUser == null ? 43 : $defaultUser.hashCode());
         Object $items = this.getItems();
         result = result * prime + ($items == null ? 43 : $items.hashCode());
         Object $name = this.getName();
@@ -230,7 +237,7 @@ public class ConfigMapVolumeSource implements Editable<ConfigMapVolumeSourceBuil
 
     @Override
     public String toString() {
-        return "ConfigMapVolumeSource(" + "defaultMode=" + this.getDefaultMode() + ", items=" + this.getItems() + ", name=" + this.getName() + ", optional=" + this.getOptional() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+        return "ConfigMapVolumeSource(" + "defaultMode=" + this.getDefaultMode() + ", defaultUser=" + this.getDefaultUser() + ", items=" + this.getItems() + ", name=" + this.getName() + ", optional=" + this.getOptional() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
     }
 
 }
