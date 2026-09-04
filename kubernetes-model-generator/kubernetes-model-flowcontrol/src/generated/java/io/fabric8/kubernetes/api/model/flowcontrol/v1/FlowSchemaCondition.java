@@ -137,7 +137,7 @@ public class FlowSchemaCondition implements Editable<FlowSchemaConditionBuilder>
     }
 
     /**
-     * `status` is the status of the condition. Can be True, False, Unknown. Required.
+     * `status` is the status of the condition. Should be specified and set to one of True, False, Unknown.
      */
     @JsonProperty("status")
     public String getStatus() {
@@ -145,7 +145,7 @@ public class FlowSchemaCondition implements Editable<FlowSchemaConditionBuilder>
     }
 
     /**
-     * `status` is the status of the condition. Can be True, False, Unknown. Required.
+     * `status` is the status of the condition. Should be specified and set to one of True, False, Unknown.
      */
     @JsonProperty("status")
     public void setStatus(String status) {

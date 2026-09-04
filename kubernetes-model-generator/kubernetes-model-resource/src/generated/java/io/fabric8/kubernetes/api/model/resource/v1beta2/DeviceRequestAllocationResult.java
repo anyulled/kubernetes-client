@@ -47,6 +47,7 @@ import io.sundr.builder.annotations.BuildableReference;
     "pool",
     "request",
     "shareID",
+    "skipNodeOperations",
     "tolerations"
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder", refs = {
@@ -89,6 +90,9 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
     private String request;
     @JsonProperty("shareID")
     private String shareID;
+    @JsonProperty("skipNodeOperations")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<String> skipNodeOperations = new ArrayList<>();
     @JsonProperty("tolerations")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<DeviceToleration> tolerations = new ArrayList<>();
@@ -101,7 +105,7 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
     public DeviceRequestAllocationResult() {
     }
 
-    public DeviceRequestAllocationResult(Boolean adminAccess, List<String> bindingConditions, List<String> bindingFailureConditions, Map<String, Quantity> consumedCapacity, String device, String driver, String pool, String request, String shareID, List<DeviceToleration> tolerations) {
+    public DeviceRequestAllocationResult(Boolean adminAccess, List<String> bindingConditions, List<String> bindingFailureConditions, Map<String, Quantity> consumedCapacity, String device, String driver, String pool, String request, String shareID, List<String> skipNodeOperations, List<DeviceToleration> tolerations) {
         super();
         this.adminAccess = adminAccess;
         this.bindingConditions = bindingConditions;
@@ -112,6 +116,7 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
         this.pool = pool;
         this.request = request;
         this.shareID = shareID;
+        this.skipNodeOperations = skipNodeOperations;
         this.tolerations = tolerations;
     }
 
@@ -260,6 +265,23 @@ public class DeviceRequestAllocationResult implements Editable<DeviceRequestAllo
     @JsonProperty("shareID")
     public void setShareID(String shareID) {
         this.shareID = shareID;
+    }
+
+    /**
+     * SkipNodeOperations lists node-local resource operations (gRPC calls) that will be skipped for this allocated device when determining whether operations are necessary on the node. If all allocated devices for a driver in a claim skip an operation, that gRPC call will be skipped. It is a copy of the ResourceSlice.spec.skipNodeOperations value at the time when the device was allocated.
+     */
+    @JsonProperty("skipNodeOperations")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    public List<String> getSkipNodeOperations() {
+        return skipNodeOperations;
+    }
+
+    /**
+     * SkipNodeOperations lists node-local resource operations (gRPC calls) that will be skipped for this allocated device when determining whether operations are necessary on the node. If all allocated devices for a driver in a claim skip an operation, that gRPC call will be skipped. It is a copy of the ResourceSlice.spec.skipNodeOperations value at the time when the device was allocated.
+     */
+    @JsonProperty("skipNodeOperations")
+    public void setSkipNodeOperations(List<String> skipNodeOperations) {
+        this.skipNodeOperations = skipNodeOperations;
     }
 
     /**

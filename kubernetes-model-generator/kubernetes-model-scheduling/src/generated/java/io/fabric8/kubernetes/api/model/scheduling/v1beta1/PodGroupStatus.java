@@ -1,0 +1,194 @@
+
+package io.fabric8.kubernetes.api.model.scheduling.v1beta1;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.fabric8.kubernetes.api.builder.Editable;
+import io.fabric8.kubernetes.api.model.Condition;
+import io.fabric8.kubernetes.api.model.Container;
+import io.fabric8.kubernetes.api.model.ContainerPort;
+import io.fabric8.kubernetes.api.model.EnvVar;
+import io.fabric8.kubernetes.api.model.IntOrString;
+import io.fabric8.kubernetes.api.model.KubernetesResource;
+import io.fabric8.kubernetes.api.model.LabelSelector;
+import io.fabric8.kubernetes.api.model.LocalObjectReference;
+import io.fabric8.kubernetes.api.model.ObjectMeta;
+import io.fabric8.kubernetes.api.model.ObjectReference;
+import io.fabric8.kubernetes.api.model.PersistentVolumeClaim;
+import io.fabric8.kubernetes.api.model.PodTemplateSpec;
+import io.fabric8.kubernetes.api.model.ResourceRequirements;
+import io.fabric8.kubernetes.api.model.Volume;
+import io.fabric8.kubernetes.api.model.VolumeMount;
+import io.sundr.builder.annotations.Buildable;
+import io.sundr.builder.annotations.BuildableReference;
+
+/**
+ * PodGroupStatus represents information about the status of a pod group.
+ */
+@JsonDeserialize(using = com.fasterxml.jackson.databind.JsonDeserializer.None.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "conditions",
+    "resourceClaimStatuses"
+})
+@Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder", refs = {
+    @BuildableReference(ObjectMeta.class),
+    @BuildableReference(LabelSelector.class),
+    @BuildableReference(Container.class),
+    @BuildableReference(PodTemplateSpec.class),
+    @BuildableReference(ResourceRequirements.class),
+    @BuildableReference(IntOrString.class),
+    @BuildableReference(ObjectReference.class),
+    @BuildableReference(LocalObjectReference.class),
+    @BuildableReference(PersistentVolumeClaim.class),
+    @BuildableReference(EnvVar.class),
+    @BuildableReference(ContainerPort.class),
+    @BuildableReference(Volume.class),
+    @BuildableReference(VolumeMount.class)
+})
+@Generated("io.fabric8.kubernetes.schema.generator.model.ModelGenerator")
+public class PodGroupStatus implements Editable<PodGroupStatusBuilder>, KubernetesResource
+{
+
+    @JsonProperty("conditions")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<Condition> conditions = new ArrayList<>();
+    @JsonProperty("resourceClaimStatuses")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<PodGroupResourceClaimStatus> resourceClaimStatuses = new ArrayList<>();
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
+
+    /**
+     * No args constructor for use in serialization
+     */
+    public PodGroupStatus() {
+    }
+
+    public PodGroupStatus(List<Condition> conditions, List<PodGroupResourceClaimStatus> resourceClaimStatuses) {
+        super();
+        this.conditions = conditions;
+        this.resourceClaimStatuses = resourceClaimStatuses;
+    }
+
+    /**
+     * conditions represent the latest observations of the PodGroup's state.<br><p> <br><p> Known condition types: - "PodGroupInitiallyScheduled": Indicates whether the scheduling requirement has been satisfied. Once this condition transitions to True, it serves as a terminal state and will never revert to False, even if pods are subsequently evicted and group constraints are no longer met. - "DisruptionTarget": Indicates whether the PodGroup is about to be terminated<br><p>   due to disruption such as preemption.<br><p> <br><p> Known reasons for the PodGroupInitiallyScheduled condition: - "Unschedulable": The PodGroup cannot be scheduled due to resource constraints,<br><p>   affinity/anti-affinity rules, or insufficient capacity for the gang.<br><p> - "SchedulerError": The PodGroup cannot be scheduled due to some internal error<br><p>   that happened during scheduling, for example due to nodeAffinity parsing errors.<br><p> <br><p> Known reasons for the DisruptionTarget condition: - "PreemptionByScheduler": The PodGroup was preempted by the scheduler to make room for<br><p>   higher-priority PodGroups or Pods.
+     */
+    @JsonProperty("conditions")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    public List<Condition> getConditions() {
+        return conditions;
+    }
+
+    /**
+     * conditions represent the latest observations of the PodGroup's state.<br><p> <br><p> Known condition types: - "PodGroupInitiallyScheduled": Indicates whether the scheduling requirement has been satisfied. Once this condition transitions to True, it serves as a terminal state and will never revert to False, even if pods are subsequently evicted and group constraints are no longer met. - "DisruptionTarget": Indicates whether the PodGroup is about to be terminated<br><p>   due to disruption such as preemption.<br><p> <br><p> Known reasons for the PodGroupInitiallyScheduled condition: - "Unschedulable": The PodGroup cannot be scheduled due to resource constraints,<br><p>   affinity/anti-affinity rules, or insufficient capacity for the gang.<br><p> - "SchedulerError": The PodGroup cannot be scheduled due to some internal error<br><p>   that happened during scheduling, for example due to nodeAffinity parsing errors.<br><p> <br><p> Known reasons for the DisruptionTarget condition: - "PreemptionByScheduler": The PodGroup was preempted by the scheduler to make room for<br><p>   higher-priority PodGroups or Pods.
+     */
+    @JsonProperty("conditions")
+    public void setConditions(List<Condition> conditions) {
+        this.conditions = conditions;
+    }
+
+    /**
+     * resourceClaimStatuses is status of resource claims.
+     */
+    @JsonProperty("resourceClaimStatuses")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    public List<PodGroupResourceClaimStatus> getResourceClaimStatuses() {
+        return resourceClaimStatuses;
+    }
+
+    /**
+     * resourceClaimStatuses is status of resource claims.
+     */
+    @JsonProperty("resourceClaimStatuses")
+    public void setResourceClaimStatuses(List<PodGroupResourceClaimStatus> resourceClaimStatuses) {
+        this.resourceClaimStatuses = resourceClaimStatuses;
+    }
+
+    @JsonIgnore
+    public PodGroupStatusBuilder edit() {
+        return new PodGroupStatusBuilder(this);
+    }
+
+    @JsonIgnore
+    public PodGroupStatusBuilder toBuilder() {
+        return edit();
+    }
+
+    @JsonAnyGetter
+    @JsonIgnore
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
+    public void setAdditionalProperties(Map<String, Object> additionalProperties) {
+        this.additionalProperties = additionalProperties;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof PodGroupStatus)) {
+            return false;
+        }
+        PodGroupStatus other = (PodGroupStatus) o;
+        if (!other.canEqual(this)) {
+            return false;
+        }
+        Object this$conditions = this.getConditions();
+        Object other$conditions = other.getConditions();
+        if (this$conditions == null ? other$conditions != null : !this$conditions.equals(other$conditions)) {
+            return false;
+        }
+        Object this$resourceClaimStatuses = this.getResourceClaimStatuses();
+        Object other$resourceClaimStatuses = other.getResourceClaimStatuses();
+        if (this$resourceClaimStatuses == null ? other$resourceClaimStatuses != null : !this$resourceClaimStatuses.equals(other$resourceClaimStatuses)) {
+            return false;
+        }
+        Object this$additionalProperties = this.getAdditionalProperties();
+        Object other$additionalProperties = other.getAdditionalProperties();
+        if (this$additionalProperties == null ? other$additionalProperties != null : !this$additionalProperties.equals(other$additionalProperties)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof PodGroupStatus;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 59;
+        int result = 1;
+        Object $conditions = this.getConditions();
+        result = result * prime + ($conditions == null ? 43 : $conditions.hashCode());
+        Object $resourceClaimStatuses = this.getResourceClaimStatuses();
+        result = result * prime + ($resourceClaimStatuses == null ? 43 : $resourceClaimStatuses.hashCode());
+        Object $additionalProperties = this.getAdditionalProperties();
+        result = result * prime + ($additionalProperties == null ? 43 : $additionalProperties.hashCode());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PodGroupStatus(" + "conditions=" + this.getConditions() + ", resourceClaimStatuses=" + this.getResourceClaimStatuses() + ", additionalProperties=" + this.getAdditionalProperties() + ")";
+    }
+
+}

@@ -94,7 +94,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * BinaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.
+     * binaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.
      */
     @JsonProperty("binaryVersion")
     public String getBinaryVersion() {
@@ -102,7 +102,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * BinaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.
+     * binaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.
      */
     @JsonProperty("binaryVersion")
     public void setBinaryVersion(String binaryVersion) {
@@ -110,7 +110,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * EmulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is "OldestEmulationVersion"
+     * emulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is "OldestEmulationVersion"
      */
     @JsonProperty("emulationVersion")
     public String getEmulationVersion() {
@@ -118,7 +118,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * EmulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is "OldestEmulationVersion"
+     * emulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is "OldestEmulationVersion"
      */
     @JsonProperty("emulationVersion")
     public void setEmulationVersion(String emulationVersion) {
@@ -126,7 +126,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * LeaseName is the name of the lease for which this candidate is contending. The limits on this field are the same as on Lease.name. Multiple lease candidates may reference the same Lease.name. This field is immutable.
+     * leaseName is the name of the lease for which this candidate is contending. The limits on this field are the same as on Lease.name. Multiple lease candidates may reference the same Lease.name. This field is immutable.
      */
     @JsonProperty("leaseName")
     public String getLeaseName() {
@@ -134,7 +134,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * LeaseName is the name of the lease for which this candidate is contending. The limits on this field are the same as on Lease.name. Multiple lease candidates may reference the same Lease.name. This field is immutable.
+     * leaseName is the name of the lease for which this candidate is contending. The limits on this field are the same as on Lease.name. Multiple lease candidates may reference the same Lease.name. This field is immutable.
      */
     @JsonProperty("leaseName")
     public void setLeaseName(String leaseName) {
@@ -174,7 +174,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
+     * strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
      */
     @JsonProperty("strategy")
     public String getStrategy() {
@@ -182,7 +182,7 @@ public class LeaseCandidateSpec implements Editable<LeaseCandidateSpecBuilder>, 
     }
 
     /**
-     * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
+     * strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
      */
     @JsonProperty("strategy")
     public void setStrategy(String strategy) {

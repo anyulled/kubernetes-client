@@ -23,7 +23,8 @@ import io.sundr.builder.annotations.Buildable;
     "fieldRef",
     "mode",
     "path",
-    "resourceFieldRef"
+    "resourceFieldRef",
+    "user"
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder")
 @Generated("io.fabric8.kubernetes.schema.generator.model.ModelGenerator")
@@ -38,6 +39,8 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
     private String path;
     @JsonProperty("resourceFieldRef")
     private ResourceFieldSelector resourceFieldRef;
+    @JsonProperty("user")
+    private Long user;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -47,12 +50,13 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
     public DownwardAPIVolumeFile() {
     }
 
-    public DownwardAPIVolumeFile(ObjectFieldSelector fieldRef, Integer mode, String path, ResourceFieldSelector resourceFieldRef) {
+    public DownwardAPIVolumeFile(ObjectFieldSelector fieldRef, Integer mode, String path, ResourceFieldSelector resourceFieldRef, Long user) {
         super();
         this.fieldRef = fieldRef;
         this.mode = mode;
         this.path = path;
         this.resourceFieldRef = resourceFieldRef;
+        this.user = user;
     }
 
     /**
@@ -117,6 +121,22 @@ public class DownwardAPIVolumeFile implements Editable<DownwardAPIVolumeFileBuil
     @JsonProperty("resourceFieldRef")
     public void setResourceFieldRef(ResourceFieldSelector resourceFieldRef) {
         this.resourceFieldRef = resourceFieldRef;
+    }
+
+    /**
+     * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+     */
+    @JsonProperty("user")
+    public Long getUser() {
+        return user;
+    }
+
+    /**
+     * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+     */
+    @JsonProperty("user")
+    public void setUser(Long user) {
+        this.user = user;
     }
 
     @JsonIgnore

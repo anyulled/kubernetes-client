@@ -81,7 +81,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * APIGroup is the group for the resource being referenced
+     * apiGroup is the group for the resource being referenced
      */
     @JsonProperty("apiGroup")
     public String getApiGroup() {
@@ -89,7 +89,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * APIGroup is the group for the resource being referenced
+     * apiGroup is the group for the resource being referenced
      */
     @JsonProperty("apiGroup")
     public void setApiGroup(String apiGroup) {
@@ -97,7 +97,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * Kind is the type of resource being referenced
+     * kind is the type of resource being referenced
      */
     @JsonProperty("kind")
     public String getKind() {
@@ -105,7 +105,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * Kind is the type of resource being referenced
+     * kind is the type of resource being referenced
      */
     @JsonProperty("kind")
     public void setKind(String kind) {
@@ -113,7 +113,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * Name is the name of resource being referenced
+     * name is the name of resource being referenced
      */
     @JsonProperty("name")
     public String getName() {
@@ -121,7 +121,7 @@ public class RoleRef implements Editable<RoleRefBuilder>, KubernetesResource
     }
 
     /**
-     * Name is the name of resource being referenced
+     * name is the name of resource being referenced
      */
     @JsonProperty("name")
     public void setName(String name) {

@@ -23,6 +23,7 @@ import io.sundr.builder.annotations.Buildable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "defaultMode",
+    "defaultUser",
     "items"
 })
 @Buildable(editableEnabled = false, validationEnabled = false, generateBuilderPackage = false, lazyCollectionInitEnabled = false, builderPackage = "io.fabric8.kubernetes.api.builder")
@@ -32,6 +33,8 @@ public class DownwardAPIVolumeSource implements Editable<DownwardAPIVolumeSource
 
     @JsonProperty("defaultMode")
     private Integer defaultMode;
+    @JsonProperty("defaultUser")
+    private Long defaultUser;
     @JsonProperty("items")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<DownwardAPIVolumeFile> items = new ArrayList<>();
@@ -44,9 +47,10 @@ public class DownwardAPIVolumeSource implements Editable<DownwardAPIVolumeSource
     public DownwardAPIVolumeSource() {
     }
 
-    public DownwardAPIVolumeSource(Integer defaultMode, List<DownwardAPIVolumeFile> items) {
+    public DownwardAPIVolumeSource(Integer defaultMode, Long defaultUser, List<DownwardAPIVolumeFile> items) {
         super();
         this.defaultMode = defaultMode;
+        this.defaultUser = defaultUser;
         this.items = items;
     }
 
@@ -64,6 +68,22 @@ public class DownwardAPIVolumeSource implements Editable<DownwardAPIVolumeSource
     @JsonProperty("defaultMode")
     public void setDefaultMode(Integer defaultMode) {
         this.defaultMode = defaultMode;
+    }
+
+    /**
+     * defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+     */
+    @JsonProperty("defaultUser")
+    public Long getDefaultUser() {
+        return defaultUser;
+    }
+
+    /**
+     * defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+     */
+    @JsonProperty("defaultUser")
+    public void setDefaultUser(Long defaultUser) {
+        this.defaultUser = defaultUser;
     }
 
     /**
